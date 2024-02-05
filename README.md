@@ -59,6 +59,19 @@ Añadí un script para iniciar el servidor:
   }
 }
 ```
+## Issue 2
 
+Creé un archivo `server.js` con el siguiente contenido:
 
+```javascript
+const express = require('express');
+const app = express();
 
+app.listen(3000, () => {
+  console.log('Example app listening on port 3000!');
+});
+```
+
+En este script importo la libreria express y la uso para iniciar una app. Luego, creo una ruta que responde a peticiones GET en la raíz del servidor con el mensaje "Hello World!". Finalmente, inicio el servidor en el puerto 3000.
+
+Si ejecuto el servidor con `npm run dev` puedo ver que el servidor se ha iniciado con éxito.
