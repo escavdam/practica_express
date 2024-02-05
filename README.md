@@ -13,7 +13,11 @@ Para realizar la practica:
 
 # Practica
 
+## Inicio
+
 Creé una rama con mi nombre, cloné el repositorio y me moví a mi rama.
+
+## Issue 0
 
 Iniciar proyecto en node:
 
@@ -37,3 +41,24 @@ Configuré mi `package.json`:
   "license": "CC0-1.0"
 }
 ```
+
+## Issue 1
+
+Instalé express:
+
+```bash
+npm install express
+```
+
+Añadí un script para iniciar el servidor:
+
+```json
+{
+  "scripts": {
+    "dev": "node server.js"
+  }
+}
+```
+
+
+
