@@ -16,7 +16,24 @@ Para realizar la practica:
 
 He arrancado un proyecto de node con `npm init -y` y he modificado un poco el `package.json`. (en el json apuntar en el autor mi nombre)
 
-//```json 
+```json
+
+{
+  "name": "practica_express",
+  "version": "1.0.0",
+  "description": "Primera practica manejando backends",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Alejandro",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
+```
 
 
 
@@ -27,3 +44,20 @@ En primer lugar, inserte en la consola de code `npm install express`
 
 
 # Issue 2
+
+Para este issue dos he creado un js donde empezare añadir todo lo relacionado para enviar una respuesta, para ello añadi lo siguiente:
+
+```js
+
+const express = require(`express`)
+
+const app = express();
+
+app.get(`/`, (req, res) => {
+ res.send("hola mundo")
+});
+app.listen(3000, () => {
+    console.log(`Se ha iniciado!!!!!`)
+  });
+```
+En la primera linea importo la libreria de express, en la segunda linea la instancio, en las ultimas lineas lo que hago es crear una respuesta simple 
