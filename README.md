@@ -1,4 +1,5 @@
 # practica_express
+
 Primera practica manejando backends
 
 Para realizar la practica:
@@ -11,8 +12,10 @@ Para realizar la practica:
 6. **NO** mandes un pull request a master, manda un pull request a tu rama.
 7. Cuando termines, manda los cambios a tu rama en tu repositorio y luego a este repositorio.
 
-# Issue 0
+## Issue 0
+
 he arracando un proyecto de node con un `npm init -y` y he modificado un poco el `package.json`.
+
 ```json
 "name": "practica_express",
   "description": "Primera practica manejando backends",
@@ -26,4 +29,11 @@ he arracando un proyecto de node con un `npm init -y` y he modificado un poco el
   "author": "",
   "license": "ISC"
   ```
-  
+
+## Issue 1
+
+He instalado satisfactoriamente Express utilizando el siguiente comando:
+
+```json
+npm instal express
+```
