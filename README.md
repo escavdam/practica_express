@@ -69,5 +69,6 @@ En el archivo `servidor.js` añadi el siguiente contenido al que ya tenía para 
 app.get('/',(req,res) => {
     res.send("hola mundo")
 }); 
-
+Esto lo que hará es que apartir de la app que hemos creado antes, la ejecute y luego hago que la app la escuche en el puerto 3000.
+Para comprobar que el servidor se ha iniciado con exito podemos poner  `npm run dev`.
 ```
