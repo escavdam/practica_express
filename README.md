@@ -63,3 +63,11 @@ Y en nuestro json añadimos lo siguiente:
   }
 }
 ```
+## Issue 2
+En el archivo `servidor.js` añadi el siguiente contenido al que ya tenía para que devuelva "hola mundo":
+```javascript
+app.get('/',(req,res) => {
+    res.send("hola mundo")
+}); 
+
+```
