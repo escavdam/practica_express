@@ -37,3 +37,29 @@ Configuré mi `package.json`:
   "license": "ISC"
 }
 ```
+
+## Issue 1
+Instalé express con el siguiente comando:
+
+```bash
+npm install express
+```
+
+Y añadí un script en js para iniciar el servidor:
+```javascript
+const express = require('express');
+const app = express();
+
+app.listen(3000, () => {
+    console.log('Servidor iniciado en el puerto 3000');
+    });
+
+```
+Y en nuestro json añadimos lo siguiente:
+```json
+{
+  "scripts": {
+    "dev": "node server.js"
+  }
+}
+```
