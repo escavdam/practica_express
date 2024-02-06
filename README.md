@@ -14,4 +14,16 @@ Para realizar la practica:
 
 # Issue 0
 
-He arrancado un proyecto de node con `npm init -y` y he modificado un poco el `package.json`. (en el json apuntar en el autor mi nombre )
+He arrancado un proyecto de node con `npm init -y` y he modificado un poco el `package.json`. (en el json apuntar en el autor mi nombre)
+
+//```json 
+
+
+
+
+# Issue 1
+
+En primer lugar, inserte en la consola de code `npm install express` 
+
+
+# Issue 2
