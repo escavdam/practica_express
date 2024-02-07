@@ -58,7 +58,6 @@ Añadí un script para iniciar el servidor:
   }
 }
 ```
-## Issue 2
 
 Creé un archivo `server.js` con el siguiente contenido:
 
@@ -75,7 +74,7 @@ Importo la función express, luego creo una app ejecutandola y finalmente hago q
 
 Si ejecuto el servidor con `npm run dev` puedo ver que el servidor se ha iniciado con éxito.
 
-## Issue 3
+## Issue 2
 
 Añadí una ruta que responde a peticiones GET en la ruta `/holamundo` con el mensaje "Hola mundo".
 
@@ -85,7 +84,7 @@ app.get('/holamundo', (req, res) => {
 });
 ```
 
-## Issue 4
+## Issue 3
 
 Creo una función para devolver un emoji aleatorio:
 
