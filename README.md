@@ -95,8 +95,6 @@ function randomEmoji(){
 }
 ```
 
-TODO: Refactorizar `Math.floor(Math.random() * emojis.length)` a una función para devolver cualquier elemento de un array.
-
 He hecho un endpoint que envia el emoji:
 
 ```javascript
@@ -104,4 +102,45 @@ app.get('/emoji', (req, res) => {
     res.send(randomEmoji());
     });
 ```
+
+## Issue 4
+
+He creado una función para generar numeros aleatorios, y otra para devolver un elemento aleatorio de una lista:
+
+```javascript
+function random(n){ //función para devolver un número aleatorio entre 0 y n
+    return Math.floor(Math.random() * n);
+}
+
+function randomElement(arr){ //función para devolver un elemento aleatorio de un array
+    return arr[random(arr.length)];
+}
+```
+
+He creado una función para devolver emojis aleatorios:
+
+```javascript
+function randomEmoji(...args){ //función para devolver un emoji aleatorio o n emojis aleatorios
+    const emojis = ['🍇', '🍈', '🍉', '🍊', '🍋', '🍌', '🍍', '🍎', '🍏', '🍐', '🍑', '🍒', '🍓', '🥝', '🍅', '🥥', '🥑', '🍆', '🥔', '🥕']
+    if(args.length === 0){ //si no se pasa ningún argumento, devolver un emoji aleatorio
+        return randomElement(emojis);
+    }
+    const nEmojis = args[0]; //guarda el valor del primer argumento
+    const randomEmojis = []; //crea un array vacío
+    for (let i = 0; i < nEmojis; i++) { //itera n veces
+        randomEmojis.push(randomElement(emojis)); //añade un emoji aleatorio al array
+    }
+    return randomEmojis; //devuelve el array
+}
+```
+
+Actualizo mi endpoint:
+
+```javascript
+app.get('/emoji', (req, res) => {
+    const emojiNumber = parseInt(req.query.emojiNumber); //guarda el valor del query parameter emojiNumber y conviertelo a entero
+    emojiNumber ? res.send(randomEmoji(emojiNumber)) : res.send(randomEmoji()); //si emojiNumber existe, devuelve n emojis, si no, devuelve 1 emoji
+    });
+```
+
 
