@@ -16,7 +16,7 @@ Para realizar la practica:
 
 Creé una rama con mi nombre, cloné el repositorio y me moví a mi rama.
 
-## Issue 0
+## Issue 1
 
 Iniciar proyecto en node:
 
@@ -41,7 +41,7 @@ Configuré mi `package.json`:
 }
 ```
 
-## Issue 1
+## Issue 2
 
 Instalé express:
 
@@ -74,7 +74,7 @@ Importo la función express, luego creo una app ejecutandola y finalmente hago q
 
 Si ejecuto el servidor con `npm run dev` puedo ver que el servidor se ha iniciado con éxito.
 
-## Issue 2
+## Issue 3
 
 Añadí una ruta que responde a peticiones GET en la ruta `/holamundo` con el mensaje "Hola mundo".
 
@@ -84,7 +84,7 @@ app.get('/holamundo', (req, res) => {
 });
 ```
 
-## Issue 3
+## Issue 4
 
 Creo una función para devolver un emoji aleatorio:
 
@@ -103,7 +103,7 @@ app.get('/emoji', (req, res) => {
     });
 ```
 
-## Issue 4
+## Issue 5
 
 He creado una función para generar numeros aleatorios, y otra para devolver un elemento aleatorio de una lista:
 
@@ -143,4 +143,23 @@ app.get('/emoji', (req, res) => {
     });
 ```
 
+## Issue 6
 
+He creado el endpoint `/saludo`, guardo la propiedad `accept` del header de la petición y devuelvo un saludo en el formato correspondiente:
+
+```javascript
+app.get('/saludo', (req, res) => {
+    const accept = req.headers.accept;
+    if(accept === '*/*'){
+        res.json({mensaje: 'Hola!'});
+    } else if(accept === 'application/json'){
+        res.json({mensaje: 'Hola!'});
+    } else if(accept === 'text/html'){
+        res.send('<h1>Hola!</h1>');
+    } else if (accept === 'text/plain'){
+        res.send('Hola!');
+    } else {
+        res.status(406).send('Not Acceptable');
+    }
+});
+```

@@ -33,6 +33,21 @@ app.get('/emoji', (req, res) => {
     emojiNumber ? res.send(randomEmoji(emojiNumber)) : res.send(randomEmoji());
     });
 
+app.get('/saludo', (req, res) => {
+    const accept = req.headers.accept;
+    if(accept === '*/*'){
+        res.json({mensaje: 'Hola!'});
+    } else if(accept === 'application/json'){
+        res.json({mensaje: 'Hola!'});
+    } else if(accept === 'text/html'){
+        res.send('<h1>Hola!</h1>');
+    } else if (accept === 'text/plain'){
+        res.send('Hola!');
+    } else {
+        res.status(406).send('Not Acceptable');
+    }
+});
+
 app.listen(3000, () => {
     console.log('Servidor iniciado en el puerto 3000');
     });
