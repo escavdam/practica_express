@@ -84,3 +84,25 @@ app.get('/holamundo', (req, res) => {
   res.send('Hola mundo');
 });
 ```
+
+## Issue 4
+
+Creo una función para devolver un emoji aleatorio:
+
+```javascript
+function randomEmoji(){
+    const emojis = ['🍇', '🍈', '🍉', '🍊', '🍋', '🍌', '🍍', '🍎', '🍏', '🍐', '🍑', '🍒', '🍓', '🥝', '🍅', '🥥', '🥑', '🍆', '🥔', '🥕']
+    return emojis[Math.floor(Math.random() * emojis.length)];
+}
+```
+
+TODO: Refactorizar `Math.floor(Math.random() * emojis.length)` a una función para devolver cualquier elemento de un array.
+
+He hecho un endpoint que envia el emoji:
+
+```javascript
+app.get('/emoji', (req, res) => {
+    res.send(randomEmoji());
+    });
+```
+
