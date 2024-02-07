@@ -69,6 +69,24 @@ En el archivo `servidor.js` añadi el siguiente contenido al que ya tenía para 
 app.get('/',(req,res) => {
     res.send("hola mundo")
 }); 
+```
 Esto lo que hará es que apartir de la app que hemos creado antes, la ejecute y luego hago que la app la escuche en el puerto 3000.
 Para comprobar que el servidor se ha iniciado con exito podemos poner  `npm run dev`.
+
+## Issue 3
+En el archivo `servidor.js` añadi el siguiente contenido al que ya tenía para que devuelva de manera aleatoria los emojis:
+```javascript
+app.get('/emoji', (req, res) => {
+    const emojis = ['🍇', '🍈', '🍉', '🍊', '🍋', '🍌', '🍍', '🍎', '🍏', '🍐', '🍑', '🍒', '🍓', '🥝', '🍅', '🥥', '🥑', '🍆', '🥔', '🥕'];
+    const randomEmo = random(emojis);
+    res.send(randomEmo);
+});
 ```
+Y antes de eso tendras que crear una funcion para que devuelva un valor random de la siguiente manera:
+```javascript
+function random(array) {
+    const randomEmojiIndex = Math.floor(Math.random() * array.length);
+    return array[randomEmojiIndex];
+}
+```
+Hay que tener en cuenta que tiene que ser Index, para que pueda coger el emoji correspondiente ya que se encuentra en un indice y luego lo devuelva
