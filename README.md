@@ -90,3 +90,33 @@ function random(array) {
 ```
 Hay que tener en cuenta que tiene que ser Index, para que pueda coger el emoji correspondiente ya que se encuentra en un indice y luego lo devuelva
 
+## Issue 4
+En el archivo `servidor.js` añadi el siguiente contenido al que ya tenía para que devuelva varios datos o 1 dato, dependiendo de lo que escribamos en la url:
+```javascript
+function randomEmoji(number) {
+    const emojis = ['🍇', '🍈', '🍉', '🍊', '🍋', '🍌', '🍍', '🍎', '🍏', '🍐', '🍑', '🍒', '🍓', '🥝', '🍅', '🥥', '🥑', '🍆', '🥔', '🥕'];
+    const emojiList = [];
+    for (let i = 0; i < number; i++) {
+        emojiList.push(randomElement(emojis));
+    }
+    return emojiList;
+}
+```
+Esto lo que hace es generar una lista de emojis aleatorios basada en el numero proporcionado como elemento.
+
+Luego debemos, modificar el endpoint que teniamos antes para aplicar los cambios aplicados:
+```javascript
+app.get('/emoji', (req, res) => {
+   const emojiNumber = parseInt(req.query.emojiNumber);
+   emojiNumber ? res.json(randomEmoji(emojiNumber)) : res.json(randomEmoji(1))
+    res.json(randomEmoji(emojiNumber));
+
+});
+```
+En este codigo realizamos que si se proporciona el parámetro 'emojiNumber' en la URL, la cantidad de emojis en la respuesta será igual a ese número; de lo contrario, se devolverá un solo emoji.
+
+
+
+
+
+
