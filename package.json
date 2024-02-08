@@ -5,7 +5,7 @@
   "main": "servidor.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node servidor.js"
+    "dev": "nodemon servidor.js"
   },
   "keywords": [
     "practica",
@@ -14,6 +14,10 @@
   "author": "camacho",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
   }
 }

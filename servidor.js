@@ -1,25 +1,22 @@
 const express = require('express');
+
+const morgan = require('morgan')
+
+//crear app
 const app = express();
 
-function random(n) {
-    return Math.floor(Math.random() * n);
-}
+//configuracion
+app.use(morgan('combined'))
 
-function randomElement(arr) {
-    return arr[random(arr.length)];
-}
+//router
+const ejemploRutas = require('./routes/ejemploRutas.js')
+app.use(ejemploRutas)
 
-function randomEmoji(number) {
-    const emojis = ['🍇', '🍈', '🍉', '🍊', '🍋', '🍌', '🍍', '🍎', '🍏', '🍐', '🍑', '🍒', '🍓', '🥝', '🍅', '🥥', '🥑', '🍆', '🥔', '🥕'];
-    const emojiList = [];
-    for (let i = 0; i < number; i++) {
-        emojiList.push(randomElement(emojis));
-    }
-    return emojiList;
-}
+//Puedo quitar las funciones del script ya que las tengo en ejemploRutas.js que esta dentro de la carpeta de routes.
+
 
 app.get('/', (req, res) => {
-    res.send("Hola Mundo");
+    res.send("Hola Makina");
 });
 
 app.get('/emoji', (req, res) => {
