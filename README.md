@@ -17,3 +17,5 @@ Para realizar la practica:
 3. instalo npm express y me crea un package-lock.json
 4. creo "server.js"
 5. añado contenido a server.js
+6. añado ahi el issue 4 pal carro
+7. 
