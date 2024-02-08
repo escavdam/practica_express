@@ -11,5 +11,47 @@ Para realizar la practica:
 6. Cuando termines, manda los cambios a tu rama en tu repositorio y luego a este repositorio.
 
 ## issue 1
-He arancado un proyecto en mir rama a traves `npm run test`. Con este codigo, el archivo "package.jsso" estaba creado
+He arancado un proyecto en mir rama a traves `npm run test`. Con este codigo, el archivo "package.jsso" estaba creado (Un archivo donde he escribido mi nombre tan autor, el nombre del proyecto y otros informaciones necessarios.)
 
+```json
+{
+  "name": "practica_express",
+  "version": "1.0.0",
+  "description": "Practica manejando backdends para makram elghadir",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["nodejs", "express", "attempt"],
+  "author": "Makram",
+  "license": "LICENSE"
+}
+```
+
+## issue 2
+
+Despues crear y re-escribir "package.json", debo instalar la liberia "Express". Este instalacion solo necessita el escrito de `npm install express` en la consola. En addicion de la modificacion de "package.json", el archivo "package-lock.json" estaba creatada tambien. 
+
+```json
+{
+  "name": "practica_express",
+  "version": "1.0.0",
+  "description": "Practica manejando backdends para makram elghadir",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "attempt"
+  ],
+  "author": "Makram",
+  "license": "LICENSE",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
+```
+
+Finalmente, debemos inic
