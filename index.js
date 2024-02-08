@@ -1,13 +1,24 @@
 const express = require(`express`)
-
 const app = express();
-
 const {randomEmoji, multipleEmoji} = require(`./scripts/emoji`)
+const morgan = require(`morgan`)
+
+//config
+app.use(morgan(`combined`))
+
+
+//
+
+
+//router
+const ejemplosRutas = require (`./routes/ejemplos_rutas.js`)
+app.use(ejemplosRutas)
+
+//
 
 app.get(`/`, (req, res) => {
  res.send("hola mundo")
 });
-
 
 app.get(`/emoji`, (req, res) => {
   const emojiNumber = req.query.emojiNumber
@@ -21,7 +32,6 @@ app.get(`/emoji`, (req, res) => {
   }*/
 });
 
-
 app.listen(3000, () => {
-    console.log(`Se ha iniciado!!!!! en http://loacalhost:3000`)
+    console.log(`Se ha iniciado!!!!! en http://localhost:3000`)
   });
