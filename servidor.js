@@ -1,9 +1,22 @@
 const express = require('express');
 const app = express();
 
-function random(array) {
-    const randomEmojiIndex = Math.floor(Math.random() * array.length);
-    return array[randomEmojiIndex];
+function random(n) {
+    return Math.floor(Math.random() * n);
+}
+
+function randomElement(arr) {
+    return arr[random(arr.length)];
+}
+
+function randomEmoji(number) {
+    const emojis = ['🍇', '🍈', '🍉', '🍊', '🍋', '🍌', '🍍', '🍎', '🍏', '🍐', '🍑', '🍒', '🍓', '🥝', '🍅', '🥥', '🥑', '🍆', '🥔', '🥕'];
+    const emojiList = [];
+    const number = 3;
+    for (let i = 0; i < number; i++) {
+        emojiList.push(randomElement(emojis));
+    }
+    return emojiList;
 }
 
 app.get('/', (req, res) => {
@@ -11,12 +24,8 @@ app.get('/', (req, res) => {
 });
 
 app.get('/emoji', (req, res) => {
-    const emojis = ['🍇', '🍈', '🍉', '🍊', '🍋', '🍌', '🍍', '🍎', '🍏', '🍐', '🍑', '🍒', '🍓', '🥝', '🍅', '🥥', '🥑', '🍆', '🥔', '🥕'];
-
-    const emojiNumber = req.query.emojiNumber;
-    
-    const randomEmo = random(emojis);
-    res.send(randomEmo);
+    const emojiNumber = parseInt(req.query.emojiNumber);
+    res.json(randomEmoji(emojiNumber));
 });
 
 app.listen(3000, () => {
