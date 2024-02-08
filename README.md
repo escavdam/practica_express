@@ -11,3 +11,4 @@ Para realizar la practica:
 6. Cuando termines, manda los cambios a tu rama en tu repositorio y luego a este repositorio.
 
 ## issue 1
+He arancado un proyecto en
