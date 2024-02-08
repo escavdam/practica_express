@@ -1,6 +1,7 @@
 const express = require("express"); 
-
-const app = express(); 
+const { randomEmoji, multipleEmoji } = require(`./scripts.js/emoji`)
+const app = express();
+const ejemplos_rutas = require(`./routes/ejemplosRutas`);
 
 app.get("/", (req, res) => {
   res.send("Ole los caracoleees (hola mundo)");
