@@ -12,4 +12,8 @@ Para realizar la practica:
 
 
 # inicio
-- tengo mi rama con mi repo
+1. tengo mi rama con mi repo
+2. configuro mi package.json
+3. instalo npm express y me crea un package-lock.json
+4. creo "server.js"
+5. añado contenido a server.js
