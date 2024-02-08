@@ -57,3 +57,13 @@ app.listen(3000, () => {
 
 En este script importo la libreria express y la uso para iniciar una app. Finalmente, inicio el servidor en el puerto 3000.
 Si ejecuto el servidor con `npm` run dev puedo ver que el servidor se ha iniciado con éxito.
+
+## Issue 3
+
+Añadí una ruta que responde a peticiones GET en la ruta /holamundo con el mensaje "Hola mundo".
+
+```json
+app.get('/holamundo', (req, res) => {
+  res.send('Hola mundo');
+});
+```
