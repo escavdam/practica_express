@@ -12,7 +12,7 @@ Para realizar la practica:
 6. Cuando termines, manda los cambios a tu rama en tu repositorio y luego a este repositorio.
 
 
-# Issue 0
+# Issue 1
 
 He arrancado un proyecto de node con `npm init -y` y he modificado un poco el `package.json`. (en el json apuntar en el autor mi nombre)
 
@@ -38,12 +38,12 @@ He arrancado un proyecto de node con `npm init -y` y he modificado un poco el `p
 
 
 
-# Issue 1
+# Issue 2
 
 En primer lugar, inserte en la consola de code `npm install express` 
 
 
-# Issue 2
+# Issue 3
 
 Para este issue dos he creado un js donde empezare añadir todo lo relacionado para enviar una respuesta, para ello añadi lo siguiente:
 
@@ -61,4 +61,7 @@ app.listen(3000, () => {
   });
 ```
 En la primera linea importo la libreria de express, en la segunda linea la instancio, en las ultimas lineas lo que hago es crear una respuesta simple 
+
+
+# Issue 4 
 

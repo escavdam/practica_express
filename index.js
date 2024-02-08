@@ -6,6 +6,11 @@ app.get(`/`, (req, res) => {
  res.send("hola mundo")
 });
 
+
+app.get(`/emoji`, (req, res) => {
+  
+});
+
 app.listen(3000, () => {
     console.log(`Se ha iniciado!!!!!`)
   });
