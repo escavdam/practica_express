@@ -5,6 +5,7 @@ Primera practica manejando backends
 Para realizar la practica:
 
 <<<<<<< HEAD
+
 1. Crea una rama con tu nombre
 2. Clona el repositorio
 3. Ve a tu rama
@@ -39,4 +40,7 @@ He instalado satisfactoriamente Express utilizando el siguiente comando `npm ins
 ## Issue 2
 
 Endpoint creado con la función de mandar un mensaje a la consola en el script: /script_holiwi.js
-=======
+
+## Issue 3
+
+
