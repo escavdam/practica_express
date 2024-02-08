@@ -46,7 +46,7 @@ He instalado express con `npm install express` y añadí un script para iniciar 
 
 Creé un archivo `server.js` con el siguiente contenido:
 
-```json
+```JavaScript
 const express = require('express');
 const app = express();
 
@@ -62,8 +62,27 @@ Si ejecuto el servidor con `npm` run dev puedo ver que el servidor se ha iniciad
 
 Añadí una ruta que responde a peticiones GET en la ruta /holamundo con el mensaje "Hola mundo".
 
-```json
+```JavaScript
 app.get('/holamundo', (req, res) => {
   res.send('Hola mundo');
 });
+```
+
+## Issue 4
+
+Creo una función para devolver un emoji aleatorio:
+
+```JavaScript
+function randomEmoji(){
+    const emojis = ['🍇', '🍈', '🍉', '🍊', '🍋', '🍌', '🍍', '🍎', '🍏', '🍐', '🍑', '🍒', '🍓', '🥝', '🍅', '🥥', '🥑', '🍆', '🥔', '🥕']
+    return emojis[Math.floor(Math.random() * emojis.length)];
+}
+```
+
+He hecho un endpoint que envia el emoji:
+
+```JavaScript
+app.get('/emoji', (req, res) => {
+    res.send(randomEmoji());
+    });
 ```
