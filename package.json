@@ -1,12 +1,19 @@
 {
   "name": "practica_express",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Practica manejando backdends para makram elghadir",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "node server.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "keywords": [
+    "nodejs",
+    "express",
+    "attempt"
+  ],
+  "author": "Makram",
+  "license": "LICENSE",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
