@@ -14,7 +14,13 @@ Para realizar la practica:
 
 ## Issue 0
 
-He arrancado un proyecto de node con `npm init -y` y he modificado un poco el `package.json`.
+He arrancado un proyecto de node con
+
+```bash
+npm init -y
+```
+
+ y he modificado un poco el `package.json`.
 
 ```json
 {
@@ -33,7 +39,13 @@ He arrancado un proyecto de node con `npm init -y` y he modificado un poco el `p
 
 ## Issue 1
 
-He instalado express con `npm install express` y añadí un script para iniciar el servidor:
+He instalado express con 
+
+```bash
+npm i express
+```
+
+ y añadí un script para iniciar el servidor:
 
 ```json
 "scripts": {
@@ -56,7 +68,7 @@ app.listen(3000, () => {
 ```
 
 En este script importo la libreria express y la uso para iniciar una app. Finalmente, inicio el servidor en el puerto 3000.
-Si ejecuto el servidor con `npm` run dev puedo ver que el servidor se ha iniciado con éxito.
+Si ejecuto el servidor con `npm run dev` puedo ver que el servidor se ha iniciado con éxito.
 
 ## Issue 3
 
