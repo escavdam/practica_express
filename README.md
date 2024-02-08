@@ -69,4 +69,3 @@ Funcionamiento:
 `const randomEmo = random(emojis);` : Selecciona un emoji aleatorio del array.
 
 `res.send(randomEmo);`: Envía el emoji aleatorio como respuesta.
-
