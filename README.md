@@ -11,4 +11,5 @@ Para realizar la practica:
 6. Cuando termines, manda los cambios a tu rama en tu repositorio y luego a este repositorio.
 
 ## issue 1
-He arancado un proyecto en
+He arancado un proyecto en mir rama a traves `npm run test`. Con este codigo, el archivo "package.jsso" estaba creado
+
