@@ -1,0 +1,12 @@
+{
+  "name": "practica_express",
+  "version": "1.0.0",
+  "description": "Primera practica manejando backends",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["noob", "nodejs", "express"],
+  "author": "datadiego",
+  "license": "CC0-1.0"
+}
