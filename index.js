@@ -2,6 +2,8 @@ const express = require(`express`)
 
 const app = express();
 
+const {randomEmoji, multipleEmoji} = require(`./scripts/emoji`)
+
 app.get(`/`, (req, res) => {
  res.send("hola mundo")
 });
@@ -21,5 +23,5 @@ app.get(`/emoji`, (req, res) => {
 
 
 app.listen(3000, () => {
-    console.log(`Se ha iniciado!!!!!`)
+    console.log(`Se ha iniciado!!!!! en http://loacalhost:3000`)
   });
