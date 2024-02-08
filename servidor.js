@@ -12,8 +12,7 @@ function randomElement(arr) {
 function randomEmoji(number) {
     const emojis = ['🍇', '🍈', '🍉', '🍊', '🍋', '🍌', '🍍', '🍎', '🍏', '🍐', '🍑', '🍒', '🍓', '🥝', '🍅', '🥥', '🥑', '🍆', '🥔', '🥕'];
     const emojiList = [];
-    const number = 3;
-    for (let i = 0; i < number; i++) {
+    for (let i = 0; i < (number || 1); i++) {
         emojiList.push(randomElement(emojis));
     }
     return emojiList;
