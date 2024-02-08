@@ -115,7 +115,25 @@ app.get('/emoji', (req, res) => {
 ```
 En este codigo realizamos que si se proporciona el parámetro 'emojiNumber' en la URL, la cantidad de emojis en la respuesta será igual a ese número; de lo contrario, se devolverá un solo emoji.
 
+## Issue 5
+En el archivo `servidor.js` añadi el siguiente contenido para que dependiendo de lo que estemos solicitando me muestre una cosa diferente, y para eso tendremos que 
+utilizar un header que captura el valor de accept y con el que se podra elegir que tipo de contenido va a procesar:
+```javascript
+app.get('/saludo', (req, res) => {
+    const accept = req.headers.accept; 
+    if(accept === '*/*'){
+        res.json({mensaje: 'Hola!'});
+    } else if(accept === 'application/json'){
+        res.json({mensaje: 'Hola!'});
+    } else if(accept === 'text/html'){
+        res.send('<h1>Hola!</h1>');
+    } else if (accept === 'text/plain'){
+        res.send('Hola!');
+    } 
+});
+```
 
+De esta forma lo que hara el headers es añadirle un valor a accept, para que dependiendo del valor que pongamos en la URL, nos mostrará una cosa diferente.
 
 
 
