@@ -2,4 +2,4 @@
 
 ## Issue 1
 
-He inciado elun proyecto de node con el comando `nmp init -y`
+He inciado un proyecto de node con el comando `nmp init -y`
