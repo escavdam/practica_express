@@ -43,4 +43,30 @@ Endpoint creado con la función de mandar un mensaje a la consola en el script: 
 
 ## Issue 3
 
+Endpoint que genera aleatoriamente un emoji, emojis provenientes de una lista, uso:
+
+```javascript
+app.get('/emoji', (req, res) => {
+    const emojis = ['🍇', '🍈', '🍉', '🍊', '🍋', '🍌', '🍍', '🍎', '🍏', '🍐', '🍑', '🍒', '🍓', '🥝', '🍅', '🥥', '🥑', '🍆', '🥔', '🥕'];
+
+    const emojiNumber = req.query.emojiNumber;
+    
+    const randomEmo = random(emojis);
+    res.send(randomEmo);
+});
+```
+
+Esta función define una ruta en una aplicación Express.js que responde a solicitudes GET al endpoint /emoji. Su objetivo es enviar un emoji aleatorio al cliente.
+
+Funcionamiento:
+
+`app.get('/emoji', (req, res) => {` : Define la ruta y el manejador de la solicitud.
+
+`const emojis = ['', '', '', ...];` : Crea un array con emojis.
+
+`const emojiNumber = req.query.emojiNumber;` : Obtiene el parámetro emojiNumber de la solicitud.
+
+`const randomEmo = random(emojis);` : Selecciona un emoji aleatorio del array.
+
+`res.send(randomEmo);`: Envía el emoji aleatorio como respuesta.
 
