@@ -51,7 +51,7 @@ const express = require('express');
 const app = express();
 
 app.listen(3000, () => {
-  console.log('Example app listening on port 3000!');
+  console.log('Hemos iniciado el servidor 3000!');
 });
 ```
 
@@ -85,4 +85,44 @@ He hecho un endpoint que envia el emoji:
 app.get('/emoji', (req, res) => {
     res.send(randomEmoji());
     });
+```
+
+## Issue 5
+
+He creado una función para generar numeros aleatorios, y otra para devolver un elemento aleatorio de la lista:
+
+```JavaScript
+function random(n){
+    return Math.floor(Math.random() * n);
+}
+
+function randomElement(arr){
+    return arr[random(arr.length)];
+}
+```
+
+Actualizo la función para devolver emojis aleatorios:
+
+```JavaScript
+function randomEmoji(...args){
+  const emojis = ['🍇', '🍈', '🍉', '🍊', '🍋', '🍌', '🍍', '🍎', '🍏', '🍐', '🍑', '🍒', '🍓', '🥝', '🍅', '🥥', '🥑', '🍆', '🥔', '🥕']
+  if(args.length === 0){
+      return randomElement(emojis);
+  }
+  const nEmojis = args[0];
+  const randomEmojis = [];
+  for (let i = 0; i < nEmojis; i++) {
+      randomEmojis.push(randomElement(emojis));
+  }
+  return randomEmojis;
+}
+```
+
+Actualizo mi endpoint:
+
+```JavaScript
+app.get('/emoji', (req, res) => {
+    const emojiNumber = parseInt(req.query.emojiNumber);
+    emojiNumber ? res.send(randomEmoji(emojiNumber)) : res.send(randomEmoji());
+  });
 ```

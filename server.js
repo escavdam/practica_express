@@ -1,19 +1,36 @@
 const express = require('express');
 const app = express();
 
+function random(n){
+  return Math.floor(Math.random() * n);
+}
+
+function randomElement(arr){
+  return arr[random(arr.length)];
+}
+
+function randomEmoji(...args){
+  const emojis = ['🍇', '🍈', '🍉', '🍊', '🍋', '🍌', '🍍', '🍎', '🍏', '🍐', '🍑', '🍒', '🍓', '🥝', '🍅', '🥥', '🥑', '🍆', '🥔', '🥕']
+  if(args.length === 0){
+      return randomElement(emojis);
+  }
+  const nEmojis = args[0];
+  const randomEmojis = [];
+  for (let i = 0; i < nEmojis; i++) {
+      randomEmojis.push(randomElement(emojis));
+  }
+  return randomEmojis;
+}
+
 app.get('/holamundo', (req, res) => {
   res.send('Hola mundo');
 });
 
-function randomEmoji(){
-  const emojis = ['🍇', '🍈', '🍉', '🍊', '🍋', '🍌', '🍍', '🍎', '🍏', '🍐', '🍑', '🍒', '🍓', '🥝', '🍅', '🥥', '🥑', '🍆', '🥔', '🥕']
-  return emojis[Math.floor(Math.random() * emojis.length)];
-}
-
 app.get('/emoji', (req, res) => {
-  res.send(randomEmoji());
+  const emojiNumber = parseInt(req.query.emojiNumber);
+  emojiNumber ? res.send(randomEmoji(emojiNumber)) : res.send(randomEmoji());
 });
 
 app.listen(3000, () => {
-  console.log('Example app listening on port 3000!');
+  console.log('Hemos iniciado el servidor 3000!');
 });
