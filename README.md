@@ -32,3 +32,26 @@ Para realizar la practica:
   "license": "CC0-1.0"
 }
 ``````
+
+# ISSUE 2
+Instalé Express ``npm install express``
+
+Añadí un script para iniciar el servidor:
+```{
+  "scripts": {
+    "dev": "node server.js"
+  }
+}
+```
+Creé un archivo server.js con el siguiente contenido:
+```
+const express = require('express');
+const app = express();
+
+app.listen(3000, () => {
+  console.log('Example app listening on port 3000!');
+});
+```
+Importo la función express, luego creo una app ejecutandola y finalmente hago que la app escuche en el puerto 3000.
+
+Si ejecuto el servidor con ``npm run dev``  puedo ver que el servidor se ha iniciado con éxito.
