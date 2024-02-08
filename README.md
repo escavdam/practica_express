@@ -17,6 +17,7 @@ Para realizar la practica:
 he arracando un proyecto de node con un `npm init -y` y he modificado un poco el `package.json`.
 
 ```json
+
 "name": "practica_express",
   "description": "Primera practica manejando backends",
   "version": "1.0.0",
@@ -28,12 +29,13 @@ he arracando un proyecto de node con un `npm init -y` y he modificado un poco el
   "keywords": [],
   "author": "",
   "license": "ISC"
+
   ```
 
 ## Issue 1
 
-He instalado satisfactoriamente Express utilizando el siguiente comando:
+He instalado satisfactoriamente Express utilizando el siguiente comando `npm instal express`
 
-```json
-npm instal express
-```
+## Issue 2
+
+Endpoint creado con la función de mandar un mensaje a la consola en el script: /script_holiwi.js
