@@ -1,9 +1,11 @@
-const express = require('express');
+const express = require("express");
+const router = express.Router();
+const morgan = require("morgan");
 const app = express();
 
-app.listen(3000, () => {
-  console.log('Estamos en el puerto 3000 cariñico!');
-});
+
+
+app.use(morgan("combined"))
 
 app.get('/holamundo', (req, res) => {
     res.send('Hola mundo');
@@ -22,19 +24,13 @@ app.get('/holamundo', (req, res) => {
     return randomEmojis; //devuelve el array
 }
 
+
 app.get('/emoji', (req, res) => {
     const emojiNumber = parseInt(req.query.emojiNumber); //guarda el valor del query parameter emojiNumber y conviertelo a entero
     emojiNumber ? res.send(randomEmoji(emojiNumber)) : res.send(randomEmoji()); //si emojiNumber existe, devuelve n emojis, si no, devuelve 1 emoji
     });
 
 
-    function random(n){ //función para devolver un número aleatorio entre 0 y n
-        return Math.floor(Math.random() * n);
-    }
-    
-    function randomElement(arr){ //función para devolver un elemento aleatorio de un array
-        return arr[random(arr.length)];
-    }
     app.get('/saludo', (req, res) => {
     const accept = req.headers.accept;
     if(accept === '*/*'){
