@@ -8,11 +8,17 @@ app.get(`/`, (req, res) => {
 
 
 app.get(`/emoji`, (req, res) => {
-  const emoji = ['🍇', '🍈', '🍉', '🍊', '🍋', '🍌', '🍍', '🍎', '🍏', '🍐', '🍑', '🍒', '🍓', '🥝', '🍅', '🥥', '🥑', '🍆', '🥔', '🥕']
+  const emojiNumber = req.query.emojiNumber
+  
+  emojiNumber ? res.send(multipleEmoji(emojiNumber)) : res.send(randomEmoji())
 
-  const randomEmoji = emoji[Math.floor(Math.random() * emoji.length)];
-  res.send(randomEmoji)
+  /*if(emojiNumber){
+    res.send(multipleEmoji(emojiNumber))
+  }else{
+    res.send(randomEmoji())
+  }*/
 });
+
 
 app.listen(3000, () => {
     console.log(`Se ha iniciado!!!!!`)
