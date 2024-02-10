@@ -181,6 +181,19 @@ Y para importarlo y usarlo en mi app, lo haremos añadiendo en nuestro `servidor
 const rutasBasicas = require('./routes/rutasBasicas.js')
 app.use(rutasBasicas)
 ```
+## Issue 8
+Vamos a descargar morgan, para ellos en la terminal escribiremos lo siguiente:
+```bash
+npm install morgan
+```
+Posteriormente lo importamos en nuestro `servidor.js`, y utilizaremos lo siguiente:
+```javascript
+const morgan = require('morgan')
+```
+Y finalmente utilizaremos app.use con un preformateo de combined, pero hay muchos más.
+```javascript
+app.use(morgan('combined'))
+```
 
 
 
