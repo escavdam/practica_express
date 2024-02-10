@@ -135,6 +135,22 @@ app.get('/saludo', (req, res) => {
 
 De esta forma lo que hara el headers es añadirle un valor a accept, para que dependiendo del valor que pongamos en la URL, nos mostrará una cosa diferente.
 
+## Issue 6
+En este caso creamos una carpeta llamada scripts, y en la cual añadiremos `random.js`. Como nos pide que exportemos las funciones a este js, escribimos las funciones que hemos utilizado anteriormente, la implementamos en `random.js`, y como es EXPORTAR, tenemos que añadir esto:
+```javascript
+module.exports = {
+    random,
+    randomElement,
+    randomEmoji
+};
+```
+Esto lo que hace es exportar las funciones que tenemos en nuestro script de `servidor.js`.
+Y luego nos pide importar dichas funciones en `servidor.js`, por lo que tendremos que hacer lo siguiente.
+```javascript
+import { random, randomElement, randomEmoji } from './scripts/random.js';
+```
+
+
 
 
 
