@@ -149,7 +149,38 @@ Y luego nos pide importar dichas funciones en `servidor.js`, por lo que tendremo
 ```javascript
 import { random, randomElement, randomEmoji } from './scripts/random.js';
 ```
+## Issue 7
+Creamos una carpeta llamada router y añadimos un script llamado `rutasBasicas.js`. En este script, añadiremos los endpoints que tenemos en nuestro `servidor.js`, es decir /, /emoji y /saludo, pero en vez de usar app.get, usaremos router.use ya que estamos utilizando un router, quedaría asi:
+```javascript
+router.get('/', (req, res) => {
+    res.send("Hola Makina");
+});
 
+router.get('/emoji', (req, res) => {
+   const emojiNumber = parseInt(req.query.emojiNumber);
+   emojiNumber ? res.json(randomEmoji(emojiNumber)) : res.json(randomEmoji(1))
+    res.json(randomEmoji(emojiNumber));
+
+});
+
+router.get('/saludo', (req, res) => {
+    const accept = req.headers.accept; //La cabecera "accept" dice los tipos de contenido que el cliente puede procesar.
+    if(accept === '*/*'){
+        res.json({mensaje: 'Hola!'});
+    } else if(accept === 'application/json'){
+        res.json({mensaje: 'Hola!'});
+    } else if(accept === 'text/html'){
+        res.send('<h1>Hola!</h1>');
+    } else if (accept === 'text/plain'){
+        res.send('Hola!');
+    } 
+});
+```
+Y para importarlo y usarlo en mi app, lo haremos añadiendo en nuestro `servidor.js`, lo siguiente:
+```javascript
+const rutasBasicas = require('./routes/rutasBasicas.js')
+app.use(rutasBasicas)
+```
 
 
 

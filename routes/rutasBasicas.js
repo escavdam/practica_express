@@ -29,4 +29,17 @@ router.get('/emoji', (req, res) => {
 
 });
 
+router.get('/saludo', (req, res) => {
+    const accept = req.headers.accept; //La cabecera "accept" dice los tipos de contenido que el cliente puede procesar.
+    if(accept === '*/*'){
+        res.json({mensaje: 'Hola!'});
+    } else if(accept === 'application/json'){
+        res.json({mensaje: 'Hola!'});
+    } else if(accept === 'text/html'){
+        res.send('<h1>Hola!</h1>');
+    } else if (accept === 'text/plain'){
+        res.send('Hola!');
+    } 
+});
+
 module.exports = router

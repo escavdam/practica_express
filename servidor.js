@@ -8,15 +8,15 @@ const app = express();
 //Importo las funciones que he utilizado.
 import { random, randomElement, randomEmoji } from './scripts/random.js';
 
-//configuracion
+//configuracion morgan
 app.use(morgan('combined'))
 
 //router
-const ejemploRutas = require('./routes/ejemploRutas.js')
-app.use(ejemploRutas)
+const rutasBasicas = require('./routes/rutasBasicas.js')
+app.use(rutasBasicas)
 
 
-
+//Funciones
 function random(n) {
     return Math.floor(Math.random() * n);
 }
@@ -34,7 +34,7 @@ function randomEmoji(number) {
     return emojiList;
 }
 
-
+//Endpoints
 app.get('/', (req, res) => {
     res.send("Hola Makina");
 });
@@ -59,6 +59,7 @@ app.get('/saludo', (req, res) => {
     } 
 });
 
+//inicio servidor
 app.listen(3000, () => {
     console.log('Servidor iniciado en el puerto localhost:3000');
 });
