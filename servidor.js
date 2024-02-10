@@ -6,7 +6,7 @@ const morgan = require('morgan')
 const app = express();
 
 //Importo las funciones que he utilizado.
-import { random, randomElement, randomEmoji } from './scripts/random.js';
+const { random, randomElement, randomEmoji } = require('./scripts/random.js');
 
 //configuracion morgan
 app.use(morgan('combined'))
