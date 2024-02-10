@@ -1,7 +1,14 @@
-const express = require("express"); 
+const express = require( " express " ); 
+const morgan = require( " morgan " )
 const { randomEmoji, multipleEmoji } = require(`./scripts.js/emoji`)
-const app = express();
 const ejemplos_rutas = require(`./routes/ejemplosRutas`);
+
+
+// crear app
+const app = express();
+
+//configuración
+app.use(morgan('combined'))
 
 app.get("/", (req, res) => {
   res.send("Ole los caracoleees (hola mundo)");
