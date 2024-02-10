@@ -17,3 +17,24 @@ router.get("/ruta_query", (req, res) => {
     console.log(req.query.id);
     re.end();
 });
+
+const { randomEmoji, multipleEmoji } = require("../scripts/emoji");
+
+router.get('/emojis', (req, res) => {
+  const { emojiNumber } = req.query;
+
+  if (!emojiNumber || isNaN(emojiNumber) || emojiNumber <= 0) {
+    res.status(400).json({ error: 'Número de emojis no válido' });
+    return;
+  }
+
+  const emojis = emojiNumber > 1 ? multipleEmoji(emojiNumber) : [randomEmoji()];
+
+  res.json({ emojis });
+});
+
+app.use('/api', router);
+
+app.listen(3000, () => {
+  console.log('Server listening on port 3000');
+});
