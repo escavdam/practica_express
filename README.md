@@ -72,3 +72,40 @@ Funcionamiento:
 
 ## Issue 4
 
+Esta función genera un número aleatorio entre 0 y n (sin incluir n).
+
+```JavaScript
+function random(n) {
+  return Math.floor(Math.random() * n);
+}
+```
+
+La función randomElement(arr):
+
+Devuelve un elemento aleatorio de un array.
+
+```JavaScript
+function randomElement(arr) {
+  return arr[random(arr.length)];
+}
+```
+
+Función randomEmoji(...args):
+
+Si no se pasan argumentos, devuelve un emoji aleatorio.
+Si se pasa un argumento como número entero, devuelve ese número de emojis aleatorios.
+
+```JavaScript
+function randomEmoji(...args) {
+  const emojis = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+  if (args.length === 0) {
+    return randomElement(emojis);
+  }
+  const nEmojis = args[0];
+  const randomEmojis = [];
+  for (let i = 0; i < nEmojis; i++) {
+    randomEmojis.push(randomElement(emojis));
+  }
+  return randomEmojis;
+}
+```
