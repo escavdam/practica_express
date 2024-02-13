@@ -201,7 +201,53 @@ Posteriormente la añadimos a nuestro servidor Express para poder comprobarlo, y
 ```javascript
 app.use(express.static("public"));
 ```
+## Issue 10
+Instalamos Nunjucks, y para eso tenemos que poner lo siguiente:
+```bash
+npm install nunjucks
+```
+Posteriormente, tenemos que crear una carpeta que llamaremos views, y dentro creamos `test.njk`, y dentro tenemos que poner cosas basicas para ir probando:
+```nunjucks
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hola nunjucks</title>
+</head>
+<body>
+  <h1>Nunjucks</h1>
+  {% if username %}
+  <p>Hola {{ username }}</p>
+  {% else %}
+  <p>Hola desconocido</p>
+  {% endif %}
 
+  <ul>
+  {% for item in lista %}
+    <li>{{ item }}</li>
+  {% endfor %}
+  
+  </ul>
+</body>
+</html>
+```
+Sin olvidarnos de configurarlo correctamente en nuestro servidor:
+```javascript
+nunjucks.configure("views", {
+    autoescape: true,
+    express: app,
+  });
+```
+Y añadimos el endpoint siguiente:
+```javascript
+app.get("/hello_njk", (req, res) => {
+    const { username } = req.query;
+    const lista = ["a", "b", "c"];
+    res.render("basico.njk", { username, lista });
+  });
+```
 
 
 

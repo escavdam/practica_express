@@ -11,7 +11,14 @@ const { random, randomElement, randomEmoji } = require('./scripts/random.js');
 //configuracion morgan
 app.use(morgan('combined'))
 
+//creamos una carpeta estatica en nuestro servidor
 app.use(express.static("public"));
+
+//configuramos nunjucks
+nunjucks.configure("views", {
+    autoescape: true,
+    express: app,
+  });
 
 //router
 const rutasBasicas = require('./routes/rutasBasicas.js')
@@ -21,6 +28,12 @@ app.use(rutasBasicas)
 //Funciones en mi archivo de scripts
 
 //Endpoints
+app.get("/hello_njk", (req, res) => {
+    const { username } = req.query;
+    const lista = ["a", "b", "c"];
+    res.render("basico.njk", { username, lista });
+  });
+
 app.get('/', (req, res) => {
     res.send("Hola Makina");
 });
