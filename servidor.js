@@ -16,23 +16,7 @@ const rutasBasicas = require('./routes/rutasBasicas.js')
 app.use(rutasBasicas)
 
 
-//Funciones
-function random(n) {
-    return Math.floor(Math.random() * n);
-}
-
-function randomElement(arr) {
-    return arr[random(arr.length)];
-}
-
-function randomEmoji(number) {
-    const emojis = ['🍇', '🍈', '🍉', '🍊', '🍋', '🍌', '🍍', '🍎', '🍏', '🍐', '🍑', '🍒', '🍓', '🥝', '🍅', '🥥', '🥑', '🍆', '🥔', '🥕'];
-    const emojiList = [];
-    for (let i = 0; i < number; i++) {
-        emojiList.push(randomElement(emojis));
-    }
-    return emojiList;
-}
+//Funciones en mi archivo de scripts
 
 //Endpoints
 app.get('/', (req, res) => {
