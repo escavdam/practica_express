@@ -1,18 +1,15 @@
 function randomEmoji(){
-  
-    const emojis = ['🍇', '🍈', '🍉', '🍊', '🍋', '🍌', '🍍', '🍎', '🍏', '🍐', '🍑', '🍒', '🍓', '🥝', '🍅', '🥥', '🥑', '🍆', '🥔', '🥕']
-    
-    const Emoji = emojis[Math.floor(Math.random() * emojis.length)];
-    return Emoji
-  }
-  
-function multipleEmoji(number){
-     const emojis = []
-     for (let i = 0; i < number; i++){
-       emojis.push(randomEmoji())
-     }
-     return emojis
-  }
+  const emojis = ['🍇', '🍈', '🍉', '🍊', '🍋', '🍌', '🍍', '🍎', '🍏', '🍐', '🍑', '🍒', '🍓', '🥝', '🍅', '🥥', '🥑', '🍆', '🥔', '🥕']
+  const emoji = emojis[Math.floor(Math.random() * emojis.length)];
+  return emoji;
+}
 
-console.log(randomEmoji)
+function multipleEmoji(number){
+  const emojis = []
+  for(let i = 0; i < number; i++){
+      emojis.push(randomEmoji())
+  }
+  return emojis
+}
+
 module.exports = { randomEmoji, multipleEmoji }
