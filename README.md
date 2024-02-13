@@ -195,6 +195,14 @@ Y finalmente utilizaremos app.use con un preformateo de combined, pero hay mucho
 app.use(morgan('combined'))
 ```
 
+## Issue 9
+Creamos una carpeta que llamaremos public, y dentro creamos varios HTML basicos para diferenciarlo. En este caso he creado `about.html`, `index.html` y `prueba.html`.
+Posteriormente la añadimos a nuestro servidor Express para poder comprobarlo, y para esto tenemos que añadir lo siguiente:
+```javascript
+app.use(express.static("public"));
+```
+
+
 
 
 

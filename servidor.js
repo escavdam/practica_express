@@ -11,6 +11,8 @@ const { random, randomElement, randomEmoji } = require('./scripts/random.js');
 //configuracion morgan
 app.use(morgan('combined'))
 
+app.use(express.static("public"));
+
 //router
 const rutasBasicas = require('./routes/rutasBasicas.js')
 app.use(rutasBasicas)
