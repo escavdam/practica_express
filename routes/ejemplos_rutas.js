@@ -18,7 +18,7 @@ const { username, password } = req.params;
 });
 router.get("/ruta_query", (req, res) => {
     console.log(req.query.id);
-    re.end();
+    res.end();
 });
 
 
