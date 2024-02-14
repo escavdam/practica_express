@@ -275,6 +275,7 @@ Y luego en el `test.njk`, pondremos esto:
   <p>Hola desconocido, tienes que escribir tu{{ username }} y {{ password }} para loguearte o registrarte.  </p>
   {% endif %}
 ```
-
+Y para poder acceder al endpoint tenemos que escribir lo siguiente en la URL:
+`http://localhost:3000/test_njk?username=camacho&password=12345`
 
 
