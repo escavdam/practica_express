@@ -54,4 +54,21 @@ Despues crear y re-escribir "package.json", debo instalar la liberia "Express". 
 }
 ```
 
-Finalmente, debemos inic
+Finalmente, debemos terner un servidor. Un accion que necessita la creacion y escribo del archivo `server.js`:
+
+```js
+const express = require('express');
+const app = express();
+
+app.listen(3000, () => {
+  console.log('Example app listening on port 3000!');
+});
+```
+
+Y para iniciar el servidor para ver si fonciona. Es importante de venir a la lina 7 de `package.json` y verificar si `script.js` es linkeada :
+
+```json
+"scripts": {
+    "dev": "node server.js"
+  },
+```
