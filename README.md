@@ -249,6 +249,32 @@ app.get("/hello_njk", (req, res) => {
   });
 ```
 
+## Issue 11
+Creamos un endpoint llamado `test_njk`, con una petición `get` y luego un `res.render` para poder verlo en la plantilla de `test.njk`, y lo haremos de la siguiente manera:
+```javascript
+app.get("/test_njk", (req, res) => {
+    res.render("test.njk", { username, password});
+  });
+```
+## Issue 12
+Luego añadimos la estructura basica de HTML a nuestro `test.njk`, ponemos un titulo en h1, y utilizaremos el tipo de lenguaje de nunjucks para utilizar un valor de `username` y `password`, y para esto tendremos que pasarlo mediante una query:
+```javascript
+app.get("/test_njk", (req, res) => {
+    const { username } = req.query;
+    const {password} = req.query;
+    res.render("test.njk", { username, password});
+  });
+```
+Esto para el query de nuestro `username` y `password`.
+Y luego en el `test.njk`, pondremos esto:
+``` nunjucks
+<h1>Inicia sesión</h1>
+  {% if username %}
+  <p>Hola {{ username }}, la contraseña que tiene registrada es {{ password }} </p>
+  {% else %}
+  <p>Hola desconocido, tienes que escribir tu{{ username }} y {{ password }} para loguearte o registrarte.  </p>
+  {% endif %}
+```
 
 
 

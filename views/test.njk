@@ -7,17 +7,14 @@
   <title>Hola nunjucks</title>
 </head>
 <body>
-  <h1>Nunjucks</h1>
+  <h1>Inicia sesión</h1>
   {% if username %}
-  <p>Hola {{ username }}</p>
+  <p>Hola {{ username }}, la contraseña que tiene registrada es {{ password }} </p>
   {% else %}
-  <p>Hola desconocido</p>
+  <p>Hola desconocido, tienes que escribir tu{{ username }} y {{ password }} para loguearte o registrarte.  </p>
   {% endif %}
 
-  <ul>
-  {% for item in lista %}
-    <li>{{ item }}</li>
-  {% endfor %}
+
   
   </ul>
 </body>

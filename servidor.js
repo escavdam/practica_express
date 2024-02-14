@@ -1,5 +1,5 @@
 const express = require('express');
-
+const nunjucks = require("nunjucks");
 const morgan = require('morgan')
 
 //crear app
@@ -28,10 +28,10 @@ app.use(rutasBasicas)
 //Funciones en mi archivo de scripts
 
 //Endpoints
-app.get("/hello_njk", (req, res) => {
+app.get("/test_njk", (req, res) => {
     const { username } = req.query;
-    const lista = ["a", "b", "c"];
-    res.render("basico.njk", { username, lista });
+    const {password} = req.query;
+    res.render("test.njk", { username, password});
   });
 
 app.get('/', (req, res) => {
