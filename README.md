@@ -278,4 +278,21 @@ Y luego en el `test.njk`, pondremos esto:
 Y para poder acceder al endpoint tenemos que escribir lo siguiente en la URL:
 `http://localhost:3000/test_njk?username=camacho&password=12345`
 
+## Issue 13
+Para que nos devuelva diferentes mensajes cuando el usuario envie `username` o `password` tenemos que modificar el endpoint de `/test_njk`, para ello lo haremos de la siguiente manera:
+``` nunjucks
+  {% if username %}
+    <p>Hola {{ username }}!</p>
+  {% else %}
+    <p>No ingresaste el usuario</p>
+  {% endif %}
+
+  {% if password %}
+    <p>Tu contraseña es {{ password }}</p>
+  {% else %}
+    <p>No ingresaste la contraseña</p>
+  {% endif %}
+```
+Aquí vemos que separamos `username` con un else, para los diferentes casos que se pueda dar si lo escribe o no lo escribe, y que dependiendo de eso aparezca un mensaje u otro. En el caso de `password` pasa lo mismo, dependiendo del caso que se ejecute, se escribirá un mensaje u otro.
+
 

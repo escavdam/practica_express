@@ -7,15 +7,16 @@
   <title>Hola nunjucks</title>
 </head>
 <body>
-  <h1>Inicia sesión</h1>
   {% if username %}
-  <p>Hola {{ username }}, la contraseña que tiene registrada es {{ password }} </p>
+    <p>Hola {{ username }}!</p>
   {% else %}
-  <p>Hola desconocido, tienes que escribir tu{{ username }} y {{ password }} para loguearte o registrarte.  </p>
+    <p>No ingresaste el usuario</p>
   {% endif %}
 
-
-  
-  </ul>
+  {% if password %}
+    <p>Tu contraseña es {{ password }}</p>
+  {% else %}
+    <p>No ingresaste la contraseña</p>
+  {% endif %}
 </body>
 </html>
