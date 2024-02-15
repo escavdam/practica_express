@@ -1,4 +1,4 @@
-# practica_express
+# Practica_express
 
 Primera practica manejando backends
 
@@ -109,3 +109,28 @@ function randomEmoji(...args) {
   return randomEmojis;
 }
 ```
+
+## Issue 5
+
+En el archivo servidor.js he agregado un código que permite mostrar diferentes respuestas según lo que se solicite. 
+
+```JavaScript
+app.get('/saludo', (req, res) => {
+    const accept = req.headers.accept;
+    if(accept === '*/*'){
+        res.json({mensaje: 'Hola!'});
+    } else if(accept === 'application/json'){
+        res.json({mensaje: 'Hola!'});
+    } else if(accept === 'text/html'){
+        res.send('<h1>Hola!</h1>');
+    } else if (accept === 'text/plain'){
+        res.send('Hola!');
+    } else {
+        res.status(406).send('Not Acceptable');
+    }
+});
+```
+
+Para lograr esto, se utiliza un encabezado que captura el valor de accept, permitiendo elegir el tipo de contenido que se procesará. De esta manera, según el valor proporcionado en la URL, se mostrará un resultado distinto.
+
+## Issue 6 
