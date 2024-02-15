@@ -133,4 +133,26 @@ app.get('/saludo', (req, res) => {
 
 Para lograr esto, se utiliza un encabezado que captura el valor de accept, permitiendo elegir el tipo de contenido que se procesará. De esta manera, según el valor proporcionado en la URL, se mostrará un resultado distinto.
 
-## Issue 6 
+## Issue 6
+
+Se ha creado una carpeta llamada "scripts" en el proyecto. Dentro de esta carpeta se ha añadido un archivo llamado "random.js". Las funciones previamente utilizadas se han implementado en "random.js" y se han exportado para su uso en otros archivos del proyecto.
+
+Implementación en random.js
+Se han escrito las funciones en el archivo "random.js" y se han exportado utilizando el siguiente código:
+
+```JavaScript
+module.exports = {
+    random,
+    randomElement,
+    randomEmoji
+};
+```
+
+Importación en servidor.js
+Para utilizar estas funciones en el archivo principal del servidor, "servidor.js", se han importado de la siguiente manera:
+
+```JavaScript
+import { random, randomElement, randomEmoji } from './scripts/random.js';
+```
+
+Este cambio mejora la organización del código al separar las funciones en un archivo independiente.
