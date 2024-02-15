@@ -2,6 +2,7 @@
 const express = require('express');
 const morgan = require('morgan')
 const nunjucks = require('nunjucks')
+const fs = require('fs')
 const { randomEmoji, multipleEmoji } = require('./scripts/emoji.js')
 
 //crear la app
@@ -13,9 +14,11 @@ app.use(express.static('public'))
 app.use(morgan(':method :remote-addr :url :status :res[content-length] - :response-time ms'))
 
 //router
-const ejemplosRutas = require('./routes/ejemplosRutas.js')
+const ejemplosRutas = require('./routes/ejemplosRutas.js');
+const { error } = require('console');
 app.use(ejemplosRutas)
 
+//njk
 nunjucks.configure("views", {
     autoescape:true,
     express:app
@@ -28,6 +31,14 @@ app.get("/test_njk", (req, res) =>{
     res.render("test.njk", { username, password, lista });
 });
 
+
+app.get("/create/:file/:body", (req, res) =>{
+    const fileContent = req.params.file
+    const bodyContent = req.params.body
+    
+    fs.writeFileSync(fileContent, bodyContent)
+    res.send(`Archivo ${fileContent} creado con ${bodyContent}`);
+})
 
 //rutas
 app.get('/', (req, res) => {
