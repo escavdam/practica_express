@@ -39,7 +39,7 @@ He instalado satisfactoriamente Express utilizando el siguiente comando `npm ins
 
 ## Issue 2
 
-Endpoint creado con la función de mandar un mensaje a la consola en el script: /script_holiwi.js
+Endpoint creado con la función de mandar un mensaje a la consola en el script: ``/script_holiwi.js``
 
 ## Issue 3
 
@@ -56,7 +56,7 @@ app.get('/emoji', (req, res) => {
 });
 ```
 
-Esta función define una ruta en una aplicación Express.js que responde a solicitudes GET al endpoint /emoji. Su objetivo es enviar un emoji aleatorio al cliente.
+Esta función define una ruta en una aplicación Express.js que responde a solicitudes ``GET`` al endpoint ``/emoji``. Su objetivo es enviar un emoji aleatorio al cliente.
 
 Funcionamiento:
 
@@ -90,7 +90,7 @@ function randomElement(arr) {
 }
 ```
 
-Función randomEmoji(...args):
+``Función randomEmoji(...args):``
 
 Si no se pasan argumentos, devuelve un emoji aleatorio.
 Si se pasa un argumento como número entero, devuelve ese número de emojis aleatorios.
@@ -112,7 +112,7 @@ function randomEmoji(...args) {
 
 ## Issue 5
 
-En el archivo servidor.js he agregado un código que permite mostrar diferentes respuestas según lo que se solicite. 
+En el archivo ``servidor.js`` he agregado un código que permite mostrar diferentes respuestas según lo que se solicite. 
 
 ```JavaScript
 app.get('/saludo', (req, res) => {
@@ -135,10 +135,10 @@ Para lograr esto, se utiliza un encabezado que captura el valor de accept, permi
 
 ## Issue 6
 
-Se ha creado una carpeta llamada "scripts" en el proyecto. Dentro de esta carpeta se ha añadido un archivo llamado "random.js". Las funciones previamente utilizadas se han implementado en "random.js" y se han exportado para su uso en otros archivos del proyecto.
+Se ha creado una carpeta llamada ``scripts`` en el proyecto. Dentro de esta carpeta se ha añadido un archivo llamado ``random.js``. Las funciones previamente utilizadas se han implementado en ``random.js`` y se han exportado para su uso en otros archivos del proyecto.
 
 Implementación en random.js
-Se han escrito las funciones en el archivo "random.js" y se han exportado utilizando el siguiente código:
+Se han escrito las funciones en el archivo ``random.js`` y se han exportado utilizando el siguiente código:
 
 ```JavaScript
 module.exports = {
@@ -149,10 +149,43 @@ module.exports = {
 ```
 
 Importación en servidor.js
-Para utilizar estas funciones en el archivo principal del servidor, "servidor.js", se han importado de la siguiente manera:
+Para utilizar estas funciones en el archivo principal del servidor, ``servidor.js``, se han importado de la siguiente manera:
 
 ```JavaScript
 import { random, randomElement, randomEmoji } from './scripts/random.js';
 ```
 
 Este cambio mejora la organización del código al separar las funciones en un archivo independiente.
+
+## Issue 7
+
+Se ha creado una carpeta llamada "router" en el proyecto para gestionar los endpoints ``/holamundo``, ``emoji`` y ``/saludo``. Dentro de esta carpeta se ha creado un archivo llamado "rutasBasicas.js", donde se ha definido un router que maneja estos endpoints.
+
+```JavaScript
+router.get('/', (req, res) => {
+    res.send("Hello there!!!");
+});
+
+router.get('/emoji', (req, res) => {
+   const emojiNumber = parseInt(req.query.emojiNumber);
+   emojiNumber ? res.json(randomEmoji(emojiNumber)) : res.json(randomEmoji(1))
+    res.json(randomEmoji(emojiNumber));
+
+});
+
+router.get('/saludo', (req, res) => {
+    const accept = req.headers.accept; //La cabecera "accept" dice los tipos de contenido que el cliente puede procesar.
+    if(accept === '*/*'){
+        res.json({mensaje: ':D!'});
+    } else if(accept === 'application/json'){
+        res.json({mensaje: 'Hola!'});
+    } else if(accept === 'text/html'){
+        res.send('<h1>nice!</h1>');
+    } else if (accept === 'text/plain'){
+        res.send('hi!');
+    } 
+});
+```
+
+## Issue 8
+
