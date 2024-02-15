@@ -1,6 +1,7 @@
 //importaciones
 const express = require('express');
 const morgan = require('morgan')
+const nunjucks = require('nunjucks')
 const { randomEmoji, multipleEmoji } = require('./scripts/emoji.js')
 
 //crear la app
