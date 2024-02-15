@@ -23,8 +23,9 @@ nunjucks.configure("views", {
 
 app.get("/test_njk", (req, res) =>{
     const {username} = req.query;
+    const {password} = req.query;
     const lista = ["a", "b", "c"];
-    res.render("test.njk", { username, lista });
+    res.render("test.njk", { username, password, lista });
 });
 
 

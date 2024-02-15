@@ -8,8 +8,15 @@
 </head>
 <body>
   <h1>Nunjucks</h1>
-  {% if username %}
-  <p>Hola {{ username }}</p>
+  {% if username and password %}
+  <p>Hola {{ username }}! y tu contraseña es {{ password }}</p>
+  {% elif password %}
+  <p>No ingresaste usuario 
+    Tu contraseña es {{ password }}</p>
+  {% elif username %}
+  <p>Hola {{ username }} 
+    No ingresaste contraseña!
+  </p>
   {% else %}
   <p>Hola desconocido</p>
   {% endif %}
