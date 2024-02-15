@@ -6,8 +6,8 @@ const { randomEmoji, multipleEmoji } = require('./scripts/emoji.js')
 //crear la app
 const app = express();
 
-//configuracion
-app.use(morgan(':method :remote-addr :url :status :res[content-length] - :response-time ms'))
+//configuracion morgan
+app.use(morgan('dev'))
 
 //router
 const ejemplosRutas = require('./routes/ejemplosRutas.js')

@@ -189,3 +189,28 @@ router.get('/saludo', (req, res) => {
 
 ## Issue 8
 
+Para instalar ``Morgan``, ejecuta el siguiente comando en la terminal:
+
+```JavaScript
+npm install morgan
+```
+
+Después de instalar ``Morgan``, importa el módulo en tu archivo ``servidor.js`` de la siguiente manera:
+
+```JavaScript
+const morgan = require('morgan')
+```
+
+Luego, utiliza el middleware de Morgan con el formato de registro deseado. Por ejemplo, para utilizar el formato ``dev``, puedes agregar la siguiente línea a tu código:
+
+```JavaScript
+app.use(morgan('dev'))
+```
+
+
+
+
+
+```JavaScript
+
+```
