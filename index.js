@@ -9,6 +9,9 @@ const app = express();
 //configuracion morgan
 app.use(morgan('dev'))
 
+//creamos una carpeta estatica en nuestro servidor
+app.use(express.static("public"));
+
 //router
 const ejemplosRutas = require('./routes/ejemplosRutas.js')
 app.use(ejemplosRutas)

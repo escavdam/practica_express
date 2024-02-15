@@ -207,9 +207,15 @@ Luego, utiliza el middleware de Morgan con el formato de registro deseado. Por e
 app.use(morgan('dev'))
 ```
 
+## Issue 9
 
+Hemos creado una carpeta llamada "public" en nuestro proyecto, donde almacenamos varios archivos HTML básicos para diferenciarlos, incluyendo "about.html", "index.html" y "prueba.html". Luego, los hemos agregado a nuestro servidor Express para su visualización.
 
+```JavaScript
+app.use(express.static("public"));
+```
 
+## Issue 10
 
 ```JavaScript
 
