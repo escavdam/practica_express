@@ -16,6 +16,18 @@ app.use(morgan(':method :remote-addr :url :status :res[content-length] - :respon
 const ejemplosRutas = require('./routes/ejemplosRutas.js')
 app.use(ejemplosRutas)
 
+nunjucks.configure("views", {
+    autoescape:true,
+    express:app
+});
+
+app.get("/test_njk", (req, res) =>{
+    const {username} = req.query;
+    const lista = ["a", "b", "c"];
+    res.render("test.njk", { username, lista });
+});
+
+
 //rutas
 app.get('/', (req, res) => {
     res.send('Hola mundo');
