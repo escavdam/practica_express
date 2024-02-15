@@ -1,6 +1,7 @@
 const express = require('express');
 const nunjucks = require("nunjucks");
 const morgan = require('morgan')
+const fs = require ('fs')
 
 //crear app
 const app = express();
@@ -33,6 +34,20 @@ app.get("/test_njk", (req, res) => {
     const {password} = req.query;
     res.render("test.njk", { username, password});
   });
+
+  app.get('/create/:file/:body', (req, res) => {
+    const fileName = req.params.file;
+    const fileContent = req.params.body;
+  
+    fs.writeFile(fileName, fileContent, (err) => {
+        if (err) {
+          console.log(err);
+          return 
+        }
+        console.log("Archivo creado");
+        
+    });
+});
 
 app.get('/', (req, res) => {
     res.send("Hola Makina");

@@ -295,4 +295,21 @@ Para que nos devuelva diferentes mensajes cuando el usuario envie `username` o `
 ```
 Aquí vemos que separamos `username` con un else, para los diferentes casos que se pueda dar si lo escribe o no lo escribe, y que dependiendo de eso aparezca un mensaje u otro. En el caso de `password` pasa lo mismo, dependiendo del caso que se ejecute, se escribirá un mensaje u otro.
 
-
+## Issue 14
+Creamos un endpoint que llamaremos `/create`, el cual acepte 2 parametros `file` y `body` donde debe crear un archivo con el nombre y extensión que pasemos en `file`, con el contenido que tengamos en `body`. Para ello haremos: 
+```javascript
+  app.get('/create/:file/:body', (req, res) => {
+    const fileName = req.params.file;
+    const fileContent = req.params.body;
+  
+    fs.writeFile(fileName, fileContent, (err) => {
+        if (err) {
+          console.log(err);
+          return 
+        }
+        console.log("Archivo creado");
+        
+    });
+});
+```
+Entonces si por ejemplo escribimos en la ruta `localhost:3000/create/holamundo.txt/hola mundo` debería crear un holamundo.txt con el mensaje hola mundo.
