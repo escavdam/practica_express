@@ -6,6 +6,8 @@ const { randomEmoji, multipleEmoji } = require('./scripts/emoji.js')
 //crear la app
 const app = express();
 
+app.use(express.static('public'))
+
 //configuracion
 app.use(morgan(':method :remote-addr :url :status :res[content-length] - :response-time ms'))
 
