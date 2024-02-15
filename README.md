@@ -55,3 +55,84 @@ app.listen(3000, () => {
 Importo la función express, luego creo una app ejecutandola y finalmente hago que la app escuche en el puerto 3000.
 
 Si ejecuto el servidor con ``npm run dev``  puedo ver que el servidor se ha iniciado con éxito.
+
+# ISSUE 3
+
+He añadido una ruta que responde a peticiones GET en la ruta ``/routes`` con el mensaje "Hola mundo". En ``ejemplosRutas.js``.
+```
+router.get('/ruta_parametrica/:id', (request, response) => {
+    console.log(request.params.id);
+    response.send('Hola Mundo')
+})
+```
+
+# ISSUE 4
+
+Creo una función que nos devuelve un emoji aleatorio:
+```
+function randomEmoji(){
+    const emojis = ['🍇', '🍈', '🍉', '🍊', '🍋', '🍌', '🍍', '🍎', '🍏', '🍐', '🍑', '🍒', '🍓', '🥝', '🍅', '🥥', '🥑', '🍆', '🥔', '🥕']
+    return emojis[Math.floor(Math.random() * emojis.length)];
+}
+```
+Y hacemos un endpoint que nos envia un emoji:
+````
+app.get('/emoji', (req, res) => {
+    res.send(randomEmoji());
+    });
+````
+# ISSUE 5
+
+Creamos una función para generar números aleatorios y otra para devolver un elemento aleatorio de la lista.
+
+```
+function random(n){ //función para devolver un número aleatorio entre 0 y n
+    return Math.floor(Math.random() * n);
+}
+
+function randomElement(arr){ //función para devolver un elemento aleatorio de un array
+    return arr[random(arr.length)];
+}
+```
+Y creamos una función para devolver emojis aleatorios:
+```
+function randomEmoji(...args){
+    const emojis = ['🍇', '🍈', '🍉', '🍊', '🍋', '🍌', '🍍', '🍎', '🍏', '🍐', '🍑', '🍒', '🍓', '🥝', '🍅', '🥥', '🥑', '🍆', '🥔', '🥕']
+    if(args.length === 0){
+        return randomElement(emojis);
+    }
+    const nEmojis = args[0];
+    const randomEmojis = [];
+    for (let i = 0; i < nEmojis; i++) {
+        randomEmojis.push(randomElement(emojis));
+    }
+    return randomEmojis;
+}
+```
+Y actualiazamos el endpoint:
+```
+app.get('/emoji', (req, res) => {
+    const emojiNumber = parseInt(req.query.emojiNumber);
+    emojiNumber ? res.send(randomEmoji(emojiNumber)) : res.send(randomEmoji());
+    });
+```
+# ISSUE 6
+
+Creamos el endpoint ``/saludo`` guardamos la propiedad ``accept`` del header de la petición y devuelvo un saludo en el formato correspondiente:
+
+```
+app.get('/saludo', (req, res) => {
+    const accept = req.headers.accept;
+    if(accept === '*/*'){
+        res.json({mensaje: 'Hola!'});
+    } else if(accept === 'application/json'){
+        res.json({mensaje: 'Hola!'});
+    } else if(accept === 'text/html'){
+        res.send('<h1>Hola!</h1>');
+    } else if (accept === 'text/plain'){
+        res.send('Hola!');
+    } else {
+        res.status(406).send('Not Acceptable');
+    }
+});
+```
