@@ -12,6 +12,18 @@ app.use(morgan('dev'))
 //creamos una carpeta estatica en nuestro servidor
 app.use(express.static("public"));
 
+//configuración necesaria para Nunjucks
+nunjucks.configure("views", {
+    autoescape: true,
+    express: app,
+  });
+
+  app.get("/hello_njk", (req, res) => {
+    const { username } = req.query;
+    const lista = ["a", "b", "c"];
+    res.render("basico.njk", { username, lista });
+  });
+
 //router
 const ejemplosRutas = require('./routes/ejemplosRutas.js')
 app.use(ejemplosRutas)
@@ -42,6 +54,7 @@ app.get('/saludo', (req, res) => {
         res.status(406).send('Not Acceptable');
     }
 });
+
 
 //arrancar servidor
 app.listen(3000, () => {

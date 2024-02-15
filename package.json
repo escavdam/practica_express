@@ -1,7 +1,8 @@
 {
   "dependencies": {
     "express": "^4.18.2",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "nunjucks": "^3.2.4"
   },
   "name": "practica_express",
   "description": "Primera practica manejando backends",
