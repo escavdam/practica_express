@@ -306,8 +306,31 @@ Luego insertamos lo siguiente  en nuestro archivo ``test.njk``:
   {% endif %}
 ```
 
-```JavaScript
+## Issue 13
 
+Se agregaron condiciones if para mostrar mensajes diferentes según la información en la URL:
+
+Sin ``username`` ni ``password``: "No ingresaste usuario/contraseña".
+
+Solo ``username``: "Hola {{username}}! No ingresaste contraseña".
+
+Solo ``password``: "No ingresaste usuario. Tu contraseña es {{password}}".
+
+Con ``username`` y ``password``: "Hola {{username}}! Tu contraseña es {{password}}".
+
+
+```JavaScript
+{% if username %}
+    <p>Hola {{ username }}!</p>
+  {% else %}
+    <p>No ingresaste el usuario</p>
+  {% endif %}
+
+  {% if password %}
+    <p>Tu contraseña es {{ password }}</p>
+  {% else %}
+    <p>No ingresaste la contraseña</p>
+  {% endif %}
 ```
 
 ```JavaScript

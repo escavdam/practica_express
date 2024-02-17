@@ -9,9 +9,15 @@
 <body>
   <h1>Inicia sesión</h1>
   {% if username %}
-  <p>Holiwi {{ username }}, tu password es {{ password }} un poco corta la verdad bro. </p>
+    <p>Hola {{ username }}!</p>
   {% else %}
-  <p>Hola desconocido, dame tu nombre : {{ username }} y {{ password }} para registrarte. </p>
+    <p>No ingresaste el usuario</p>
+  {% endif %}
+
+  {% if password %}
+    <p>Tu contraseña es {{ password }}</p>
+  {% else %}
+    <p>No ingresaste la contraseña</p>
   {% endif %}
 
   <ul>
