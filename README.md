@@ -271,7 +271,50 @@ app.get("/hello_njk", (req, res) => {
   });
 ```
 
+## Issue 11
   
+Implementamos el endpoint ``test_njk``:
+Se crea una ruta con método GET a la URL ``/test_njk``.
+La función ``test_njk`` se encarga de renderizar la plantilla ``test.njk``.
+
+```JavaScript
+app.get("/test_njk", (req, res) => {
+    res.render("test.njk", { username, password});
+  });
+```
+
+## Issue 12
+
+```JavaScript
+
+```
+```JavaScript
+ 
+```
+```JavaScript
+
+```
+```JavaScript
+
+```
+```JavaScript
+
+```
+```JavaScript
+
+```
+```JavaScript
+
+```
+```JavaScript
+
+```
+```JavaScript
+
+```
+```JavaScript
+
+```
 ```JavaScript
 
 ```

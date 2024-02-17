@@ -32,7 +32,10 @@ app.use(ejemplosRutas)
 app.get('/', (req, res) => {
     res.send('Hola mundo');
 });
-
+// rutas njk
+app.get("/test_njk", (req, res) => {
+    res.render("test.njk", { username, password});
+  });
 
 app.get('/emoji', (req, res) => {
     //comprobar si el usuario envio emojiNumber en el query
