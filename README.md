@@ -285,36 +285,59 @@ app.get("/test_njk", (req, res) => {
 
 ## Issue 12
 
+ Añadimos la estructura basica de HTML al test.njk, ponemos un titulo en h1, y utilizaremos el lenguaje de nunjucks para utilizar un valor de ``username`` y ``password``, y para esto se lo diremos mediante una query:
+
+```JavaScript
+app.get("/test_njk", (req, res) => {
+    const { username } = req.query;
+    const {password} = req.query;
+    res.render("test.njk", { username, password});
+  });
+```
+
+Luego insertamos lo siguiente  en nuestro archivo ``test.njk``:
+
+```JavaScript
+ <h1>Inicia sesión</h1>
+  {% if username %}
+  <p>Holiwi {{ username }}, tu password es {{ password }} un poco corta la verdad bro. </p>
+  {% else %}
+  <p>Hola desconocido, dame tu nombre : {{ username }} y {{ password }} para registrarte. </p>
+  {% endif %}
+```
+
 ```JavaScript
 
 ```
-```JavaScript
- 
-```
+
 ```JavaScript
 
 ```
+
 ```JavaScript
 
 ```
+
 ```JavaScript
 
 ```
+
 ```JavaScript
 
 ```
+
 ```JavaScript
 
 ```
+
 ```JavaScript
 
 ```
+
 ```JavaScript
 
 ```
-```JavaScript
 
-```
 ```JavaScript
 
 ```

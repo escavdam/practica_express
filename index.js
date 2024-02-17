@@ -34,6 +34,8 @@ app.get('/', (req, res) => {
 });
 // rutas njk
 app.get("/test_njk", (req, res) => {
+    const { username } = req.query;
+    const {password} = req.query;
     res.render("test.njk", { username, password});
   });
 

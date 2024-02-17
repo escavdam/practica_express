@@ -7,11 +7,11 @@
   <title>Hola nunjucks</title>
 </head>
 <body>
-  <h1>Nunjucks</h1>
+  <h1>Inicia sesión</h1>
   {% if username %}
-  <p>Hola {{ username }}</p>
+  <p>Holiwi {{ username }}, tu password es {{ password }} un poco corta la verdad bro. </p>
   {% else %}
-  <p>Tu quién ere?</p>
+  <p>Hola desconocido, dame tu nombre : {{ username }} y {{ password }} para registrarte. </p>
   {% endif %}
 
   <ul>
