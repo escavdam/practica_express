@@ -159,3 +159,23 @@ app.get('/saludo', (req, res) => {
     }
 });
 ```
+
+## Issue 7
+
+Primero creo una carpeta a la que moveré las funciones exportadas llamada `scripts`.
+Depués creo un archivo llamado `random.js` donde exportaremos las funciones.
+A continuación muevo las funciones que ya tenía a `random.js` y con el siguiente código las exporto:
+
+```JavaScript
+module.exports = {
+    random,
+    randomElement,
+    randomEmoji
+};
+```
+
+Por último, importamos dichas funciones al archivo del servidor con el siguiente código:
+
+```JavaScript
+import { random, randomElement, randomEmoji } from './scripts/random.js';
+```
