@@ -237,3 +237,11 @@ Y finalmente utilizo `app.use` con un preformateo de combined, pero hay muchos m
 ```JavaScript
 app.use(morgan('combined'))
 ```
+
+## Issue 10
+
+Creo una carpeta llamada `public`, dentro creo about.html, index.html y prueba.html. Posteriormente añadimos esta carpeta al servidor de Express para poder comprobarlo, y para esto tenemos que añadir lo siguiente:
+
+```JavaScript
+app.use(express.static("public"));
+```
