@@ -1,13 +1,13 @@
 app.get('/holamundo', (req, res) => {
     res.send('Hola mundo');
-  });
+});
   
-  app.get('/emoji', (req, res) => {
+app.get('/emoji', (req, res) => {
     const emojiNumber = parseInt(req.query.emojiNumber);
     emojiNumber ? res.send(randomEmoji(emojiNumber)) : res.send(randomEmoji());
-  });
+});
   
-  app.get('/saludo', (req, res) => {
+app.get('/saludo', (req, res) => {
     const accept = req.headers.accept;
     if(accept === '*/*'){
         res.json({mensaje: 'Hola!'});
@@ -20,6 +20,6 @@ app.get('/holamundo', (req, res) => {
     } else {
         res.status(406).send('Not Acceptable');
     }
-  });
+});
 
-  import { random, randomElement, randomEmoji } from './scripts/random.js';
+import { random, randomElement, randomEmoji } from './scripts/random.js';
