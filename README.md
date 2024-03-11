@@ -245,3 +245,40 @@ Creo una carpeta llamada `public`, dentro creo about.html, index.html y prueba.h
 ```JavaScript
 app.use(express.static("public"));
 ```
+
+## Issue 11
+
+Instalo Nunjucks con el siguiente comando en la consola:
+
+```
+npm install nunjucks
+```
+
+A continuación, creo una carpeta llamada views donde guardo el archivo `test.njk` donde hago algunas purebas de que muestre bien lo que quiero en el servidor:
+
+```Nunjucks
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hola nunjucks</title>
+</head>
+<body>
+  <h1>Nunjucks</h1>
+  {% if username %}
+  <p>Hola {{ username }}</p>
+  {% else %}
+  <p>Hola desconocido</p>
+  {% endif %}
+
+  <ul>
+  {% for item in lista %}
+    <li>{{ item }}</li>
+  {% endfor %}
+  
+  </ul>
+</body>
+</html>
+```
