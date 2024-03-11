@@ -179,3 +179,41 @@ Por último, importamos dichas funciones al archivo del servidor con el siguient
 ```JavaScript
 import { random, randomElement, randomEmoji } from './scripts/random.js';
 ```
+
+## Issue 8
+
+Primero, creo una carpeta a la que moveré los endpoints llamada `router`.
+Dentro de esta carpeta creo un archivo llamado "rutasBasicas.js", donde defino un router que maneja estos endpoints.
+
+```JavaScript
+router.get('/', (req, res) => {
+    res.send("Hello there!!!");
+});
+
+router.get('/emoji', (req, res) => {
+   const emojiNumber = parseInt(req.query.emojiNumber);
+   emojiNumber ? res.json(randomEmoji(emojiNumber)) : res.json(randomEmoji(1))
+    res.json(randomEmoji(emojiNumber));
+
+});
+
+router.get('/saludo', (req, res) => {
+    const accept = req.headers.accept; //La cabecera "accept" dice los tipos de contenido que el cliente puede procesar.
+    if(accept === '*/*'){
+        res.json({mensaje: ':D!'});
+    } else if(accept === 'application/json'){
+        res.json({mensaje: 'Hola!'});
+    } else if(accept === 'text/html'){
+        res.send('<h1>nice!</h1>');
+    } else if (accept === 'text/plain'){
+        res.send('hi!');
+    } 
+});
+```
+
+Y para importarlo y usarlo en mi app, lo haremos añadiendo en nuestro servidor.js, lo siguiente:
+
+```JavaScript
+const rutasBasicas = require('./routes/rutasBasicas.js')
+app.use(rutasBasicas)
+```
