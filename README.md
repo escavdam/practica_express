@@ -211,9 +211,29 @@ router.get('/saludo', (req, res) => {
 });
 ```
 
-Y para importarlo y usarlo en mi app, lo haremos añadiendo en nuestro servidor.js, lo siguiente:
+Y para importarlo y usarlo en mi app, lo haremos añadiendo en nuestro `server.js`, lo siguiente:
 
 ```JavaScript
 const rutasBasicas = require('./routes/rutasBasicas.js')
 app.use(rutasBasicas)
+```
+
+## Issue 9
+
+A continuación, instalo morgan escribiendo lo siguiente en la consola:
+
+```
+npm install morgan
+```
+
+Posteriormente lo importo en el `server.js` utilizando lo siguiente:
+
+```JavaScript
+const morgan = require('morgan')
+```
+
+Y finalmente utilizo `app.use` con un preformateo de combined, pero hay muchos más.
+
+```JavaScript
+app.use(morgan('combined'))
 ```
