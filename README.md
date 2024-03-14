@@ -130,3 +130,18 @@ app.get('/saludo', (req, res) => {
 Esto es para que dependiendo de lo que solicitemos a la url esta nos muestre en pantalla una cosa u otra, para que esto funcionara use un header que capture lo que valga nuestra constante de `accept` y con esta informacion nos mostrara una cosa u otra todo esto ha base de conprovaciones a travez de if y else if(muchos de estos)
 
 # Issue 7
+
+Para este issue me adelante demasiado y lo comente donde no era (en el issue 5), pero bueno lo vuelvo a comentar. Para este issue he creado otros scripts para separar las diferentes funciones que tendra este codigo, cuando cree el otro script le puse al final del codigo lo siguiente 
+
+```js
+module.exports = {randomEmoji, multipleEmoji}
+```
+
+Y para despues utilizarlo en el codigo que yo quisiera use lo siguiente 
+
+```js
+const {randomEmoji, multipleEmoji} = require(`./scripts/emoji`)
+```
+
+# Issue 8 
+
