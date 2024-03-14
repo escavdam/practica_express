@@ -65,3 +65,29 @@ En la primera linea importo la libreria de express, en la segunda linea la insta
 
 # Issue 4 
 
+Para este tercer issue he creado una funcion la cual me dara un emoji random
+
+```js
+function random(array) {
+    const randomEmojiIndex = Math.floor(Math.random() * array.length);
+    return array[randomEmojiIndex];
+}
+
+```
+Despues de crear la funcion empece haciendo un endpoint en cual creare un array llamado emoji el cual se lo meteremos a la funcion que creamos anteriormente.
+
+```js
+app.get('/emoji', (req, res) => {
+    const emojis = ['🍇', '🍈', '🍉', '🍊', '🍋', '🍌', '🍍', '🍎', '🍏', '🍐', '🍑', '🍒', '🍓', '🥝', '🍅', '🥥', '🥑', '🍆', '🥔', '🥕'];
+    const randomEmo = random(emojis);
+    res.send(randomEmo);
+});
+
+```
+Todo esto lo encontramos en el `index.js` pero más adelante lo diviremos en diferentes scripts para que todo quede más ordenado
+
+
+# Issue 5
+
+En este cuarto issue y durante su realizacion he movido todo lo referente a emojis a un script a parte llamado `emoji.js`. Seguiendo con las instrucciones del issue 
+
