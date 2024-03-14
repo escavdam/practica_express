@@ -184,3 +184,20 @@ app.use(rutas)
 
 # Issue 9 
 
+En este issue descargaremos `morgan`, para ello abriremos nuestra terminal de visual code y pondremos lo siguiente `npm install morgan`
+con esto ya lo tendremos instalo y para saberlo solo tendremos que echarle un vistazo a nuestro json. Siguiendo con este issue importaremos `morgan` de la siguiente forma
+
+Primero
+
+```js
+const morgan = require('morgan')
+```
+Segundo
+```js
+app.use(morgan(`combined`))
+
+```
+
+y con esto ya tendriamos morgan configurado
+
+# Issue 10
