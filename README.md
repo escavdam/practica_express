@@ -45,7 +45,7 @@ En primer lugar, inserte en la consola de code `npm install express`
 
 # Issue 3
 
-Para este issue dos he creado un js donde empezare añadir todo lo relacionado para enviar una respuesta, para ello añadi lo siguiente:
+Para este issue numero tres he creado un js donde empezare añadir todo lo relacionado para enviar una respuesta, para ello añadi lo siguiente:
 
 ```js
 
@@ -65,7 +65,7 @@ En la primera linea importo la libreria de express, en la segunda linea la insta
 
 # Issue 4 
 
-Para este tercer issue he creado una funcion la cual me dara un emoji random
+Para este cuarto issue he creado una funcion la cual me dara un emoji random
 
 ```js
 function randomEmoji(){
@@ -92,7 +92,7 @@ Todo esto lo encontramos en el `index.js` pero más adelante lo diviremos en dif
 
 # Issue 5
 
-En este cuarto issue y durante su realizacion he movido todo lo referente a emojis a un script a parte llamado `emoji.js` y este lo comunicare con los otros scripts haciendo uso de `module.export`. Siguiendo con las instrucciones del issue he creado una funcion llamada `multipleEmoji()` la cual nos develvera un emoji random
+En este quinto issue y durante su realizacion he movido todo lo referente a emojis a un script a parte llamado `emoji.js` y este lo comunicare con los otros scripts haciendo uso de `module.export`. Siguiendo con las instrucciones del issue he creado una funcion llamada `multipleEmoji()` la cual nos develvera un emoji random
 
 ```js
 
@@ -110,5 +110,23 @@ Despues modificamos el endpoint del anterior que creamos con el otro isssue. En 
 
 # Issue 6 
 
+Para este sexto issue, empiezo poniendo lo siguiente
 
+```js
+app.get('/saludo', (req, res) => {
+    const accept = req.headers.accept; 
+    if(accept === '*/*'){
+        res.json({mensaje: 'HolaHolita!!!'});
+    } else if(accept === 'application/json'){
+        res.json({mensaje: 'HolaHolita!!!'});
+    } else if(accept === 'text/html'){
+        res.send('<h1>HolaHolita!!!</h1>');
+    } else if (accept === 'text/plain'){
+        res.send('HolaHolita!!!');
+    } 
+});
+```
 
+Esto es para que dependiendo de lo que solicitemos a la url esta nos muestre en pantalla una cosa u otra, para que esto funcionara use un header que capture lo que valga nuestra constante de `accept` y con esta informacion nos mostrara una cosa u otra todo esto ha base de conprovaciones a travez de if y else if(muchos de estos)
+
+# Issue 7
