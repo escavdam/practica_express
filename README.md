@@ -68,10 +68,13 @@ En la primera linea importo la libreria de express, en la segunda linea la insta
 Para este tercer issue he creado una funcion la cual me dara un emoji random
 
 ```js
-function random(array) {
-    const randomEmojiIndex = Math.floor(Math.random() * array.length);
-    return array[randomEmojiIndex];
-}
+function randomEmoji(){
+  
+    const emojis = ['🍇', '🍈', '🍉', '🍊', '🍋', '🍌', '🍍', '🍎', '🍏', '🍐', '🍑', '🍒', '🍓', '🥝', '🍅', '🥥', '🥑', '🍆', '🥔', '🥕']
+    
+    const Emoji = emojis[Math.floor(Math.random() * emojis.length)];
+    return Emoji
+  }
 
 ```
 Despues de crear la funcion empece haciendo un endpoint en cual creare un array llamado emoji el cual se lo meteremos a la funcion que creamos anteriormente.
@@ -79,8 +82,8 @@ Despues de crear la funcion empece haciendo un endpoint en cual creare un array 
 ```js
 app.get('/emoji', (req, res) => {
     const emojis = ['🍇', '🍈', '🍉', '🍊', '🍋', '🍌', '🍍', '🍎', '🍏', '🍐', '🍑', '🍒', '🍓', '🥝', '🍅', '🥥', '🥑', '🍆', '🥔', '🥕'];
-    const randomEmo = random(emojis);
-    res.send(randomEmo);
+    const randomEmojis = randomEmoji(emojis);
+    res.send(randomEmojis);
 });
 
 ```
@@ -89,5 +92,23 @@ Todo esto lo encontramos en el `index.js` pero más adelante lo diviremos en dif
 
 # Issue 5
 
-En este cuarto issue y durante su realizacion he movido todo lo referente a emojis a un script a parte llamado `emoji.js`. Seguiendo con las instrucciones del issue 
+En este cuarto issue y durante su realizacion he movido todo lo referente a emojis a un script a parte llamado `emoji.js` y este lo comunicare con los otros scripts haciendo uso de `module.export`. Siguiendo con las instrucciones del issue he creado una funcion llamada `multipleEmoji()` la cual nos develvera un emoji random
+
+```js
+
+function multipleEmoji(number){
+     const emojis = []
+     for (let i = 0; i < number; i++){
+       emojis.push(randomEmoji())
+     }
+     return emojis
+  }
+```
+
+Despues modificamos el endpoint del anterior que creamos con el otro isssue. En este cambio lo que hacemos es que nuestro endpoint pueda recibir el numero de emojis que queramos que aparezcan a travez de la url, es decir hacer lo que hace la funcion pero en el endpoint.
+
+
+# Issue 6 
+
+
 

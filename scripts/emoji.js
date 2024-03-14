@@ -13,5 +13,6 @@ function randomEmoji(){
      }
      return emojis
   }
+  
 
   module.exports = {randomEmoji, multipleEmoji}

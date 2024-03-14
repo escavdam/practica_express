@@ -20,16 +20,24 @@ app.get(`/`, (req, res) => {
  res.send("hola mundo")
 });
 
-app.get(`/emoji`, (req, res) => {
-  const emojiNumber = req.query.emojiNumber
-  
-  emojiNumber ? res.send(multipleEmoji(emojiNumber)) : res.send(randomEmoji())
+app.get('/emoji', (req, res) => {
+  const emojiAmount = parseInt(req.query.emojiAmount);
+  emojiAmount ? res.json(multipleEmoji(emojiAmount)) : res.json(multipleEmoji(1))
+   res.json(multipleEmoji(emojiAmount));
 
-  /*if(emojiNumber){
-    res.send(multipleEmoji(emojiNumber))
-  }else{
-    res.send(randomEmoji())
-  }*/
+});
+
+app.get('/saludo', (req, res) => {
+  const accept = req.headers.accept; 
+  if(accept === '*/*'){
+      res.json({mensaje: 'Hola!'});
+  } else if(accept === 'application/json'){
+      res.json({mensaje: 'Hola!'});
+  } else if(accept === 'text/html'){
+      res.send('<h1>Hola!</h1>');
+  } else if (accept === 'text/plain'){
+      res.send('Hola!');
+  } 
 });
 
 app.listen(3000, () => {
