@@ -14,7 +14,10 @@ app.use(morgan(`combined`))
 const ejemplosRutas = require (`./routes/ejemplos_rutas.js`)
 app.use(ejemplosRutas)
 
+const rutas = require(`./routes/rutas.js`)
+app.use(rutas)
 //
+
 
 app.get(`/`, (req, res) => {
  res.send("hola mundo")
@@ -30,13 +33,13 @@ app.get('/emoji', (req, res) => {
 app.get('/saludo', (req, res) => {
   const accept = req.headers.accept; 
   if(accept === '*/*'){
-      res.json({mensaje: 'Hola!'});
+      res.json({mensaje: 'HolaHolita!!!'});
   } else if(accept === 'application/json'){
-      res.json({mensaje: 'Hola!'});
+      res.json({mensaje: 'HolaHolita!!!'});
   } else if(accept === 'text/html'){
-      res.send('<h1>Hola!</h1>');
+      res.send('<h1>HolaHolita!!!</h1>');
   } else if (accept === 'text/plain'){
-      res.send('Hola!');
+      res.send('HolaHolita!!!');
   } 
 });
 

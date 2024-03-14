@@ -145,5 +145,42 @@ const {randomEmoji, multipleEmoji} = require(`./scripts/emoji`)
 
 # Issue 8 
 
+Para este issue numero ocho crearemos un nuevo script llamado `rutas.js`. En este nuevo script lo que hacemos es simplemente es copiar lo que tengo en `index.js` y cambiarlo todo a `router` 
 
+```js
+const router = express.Router()
+
+app.get(`/`, (req, res) => {
+    res.send("hola mundo")
+   });
+   
+   router.get('/emoji', (req, res) => {
+     const emojiAmount = parseInt(req.query.emojiAmount);
+     emojiAmount ? res.json(multipleEmoji(emojiAmount)) : res.json(multipleEmoji(1))
+      res.json(multipleEmoji(emojiAmount));
+   
+   });
+   
+   router.get('/saludo', (req, res) => {
+     const accept = req.headers.accept; 
+     if(accept === '*/*'){
+         res.json({mensaje: 'Hola!'});
+     } else if(accept === 'application/json'){
+         res.json({mensaje: 'Hola!'});
+     } else if(accept === 'text/html'){
+         res.send('<h1>Hola!</h1>');
+     } else if (accept === 'text/plain'){
+         res.send('Hola!');
+     } 
+   });
+```
+
+Y despues de hacer esto, lo exportaremos nuestro script principal de la siguiente manera
+
+```js
+const rutas = require(`./routes/rutas.js`)
+app.use(rutas)
+```
+
+# Issue 9 
 
