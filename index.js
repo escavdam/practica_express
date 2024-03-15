@@ -21,6 +21,10 @@ nunjucks.configure("views", {
       res.render("test.njk", { username, lista });
     });
 
+  app.get("/test_njk", (req, res) => {
+    res.render("test.njk", { username, password});
+  });
+
 app.use(express.static("public"));
 
 app.get(`/`, (req, res) => {
