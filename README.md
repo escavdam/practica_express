@@ -202,3 +202,56 @@ y con esto ya tendriamos morgan configurado
 
 # Issue 10
 
+Para este decimo issue he creado una carpeta llamada `public` en la cual creare cuatro html, despues de crear estos he puesto en el `index.js` lo siguiente
+
+```js
+app.use(express.static("public"));
+```
+
+# Issue 11 
+
+Para este issue numero once he instalo `nunjucks` de la siguiente manera
+
+`npm install nunjucks`
+
+Con esto lo instalamos poniendo ese comando en la terminal.
+
+Despues de haberlo instalado crearemos un archivo `njk`, que lo insertaremos en una carpeta llamada `views` y dentro le pondremos lo basico 
+
+```njk
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hola nunjucks</title>
+</head>
+<body>
+</body>
+</html>
+```
+
+Despues configuraremos este de la siguiente manera
+
+primero añadimos esto
+
+```js
+nunjucks.configure("views", {
+    autoescape: true,
+    express: app,
+  });
+```
+
+y por ultimo añadimos un endpoint en el que pondremos lo siguiente 
+
+```js
+app.get("/pruebas_njk", (req, res) => {
+    const { username } = req.query;
+    const lista = ["a", "b", "c"];
+    res.render("basico.njk", { username, lista });
+  });
+```
+con todo esto terminado ya tendriamos configurado nunjucks
+
+# Issue 12
