@@ -19,6 +19,8 @@ app.get("/pruebas_njk", (req, res) => {
     res.render("basico.njk", { username, lista });
   });
 
+
+
 app.use(express.static("public"));
 
 //router
@@ -27,6 +29,7 @@ app.use(ejemplosRutas)
 
 const rutas = require(`./routes/rutas.js`)
 app.use(rutas)
+
 //
 
 
