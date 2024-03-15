@@ -5,33 +5,23 @@ const morgan = require(`morgan`)
 const nunjucks = require("nunjucks");
 
 
-//config
 app.use(morgan(`combined`))
+
 nunjucks.configure("views", {
     autoescape: true,
     express: app,
   });
-//
 
-app.get("/pruebas_njk", (req, res) => {
-    const { username } = req.query;
-    const lista = ["a", "b", "c"];
-    res.render("basico.njk", { username, lista });
-  });
-
-
+  const rutas = require(`./routes/rutas.js`)
+  app.use(rutas)
+  
+  app.get("/pruebas_njk", (req, res) => {
+      const { username } = req.query;
+      const lista = ["a", "b", "c"];
+      res.render("basico.njk", { username, lista });
+    });
 
 app.use(express.static("public"));
-
-//router
-const ejemplosRutas = require (`./routes/ejemplos_rutas.js`)
-app.use(ejemplosRutas)
-
-const rutas = require(`./routes/rutas.js`)
-app.use(rutas)
-
-//
-
 
 app.get(`/`, (req, res) => {
  res.send("hola mundo")

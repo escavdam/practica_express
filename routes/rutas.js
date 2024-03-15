@@ -25,4 +25,4 @@ app.get(`/`, (req, res) => {
          res.send('HolaHolita!!!');
      } 
    });
-   
+   module.exports = router
