@@ -18,7 +18,7 @@ nunjucks.configure("views", {
   app.get("/pruebas_njk", (req, res) => {
       const { username } = req.query;
       const lista = ["a", "b", "c"];
-      res.render("basico.njk", { username, lista });
+      res.render("test.njk", { username, lista });
     });
 
 app.use(express.static("public"));
